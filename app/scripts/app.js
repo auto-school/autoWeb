@@ -16,26 +16,40 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/myroute', {
-        templateUrl: 'views/myroute.html',
-        controller: 'MyrouteCtrl',
-        controllerAs: 'myroute'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+  .config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/auth/login");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('app', {
+      url: "/app",
+      templateUrl: "views/navigation.html",
+      controller: 'NavigationCtrl'
+    })
+    .state('app.home', {
+      url: "/home",
+      templateUrl: "views/home.html",
+      controller: 'HomeCtrl'
+    })
+    .state('auth', {
+      url: "/auth",
+      templateUrl: "views/auth.html",
+      controller: 'AuthCtrl'
+    })
+    .state('auth.login', {
+      url: "/login",
+      templateUrl: "views/login.html",
+      controller: 'LoginCtrl'
+    })
+    .state('auth.signup', {
+      url: "/signup",
+      templateUrl: "views/signup.html",
+      controller: 'SignupCtrl'
+    })
+
+});

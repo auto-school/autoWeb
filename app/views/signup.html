@@ -1,0 +1,16 @@
+signup
+
+<md-input-container>
+  <label>用户名</label>
+  <input ng-model="user.name">
+</md-input-container>
+<md-input-container>
+  <label>密码</label>
+  <input ng-model="user.password" type="password">
+</md-input-container>
+<md-input-container>
+  <label>确认密码</label>
+  <input ng-model="user.verifiedPassword" type="password">
+</md-input-container>
+<div>{{user.password == user.verifiedPassword}}</div>
+<md-button ng-click="signup()" class="md-primary">注册</md-button>
