@@ -1,1 +1,17 @@
-login
+<md-input-container class="loginAndSignupInput">
+  <label>用户名</label>
+  <input ng-model="user.name" required>
+  <div ng-messages="user.name.$error">
+    <div ng-message="required">必填项</div>
+  </div>
+</md-input-container>
+<md-input-container class="loginAndSignupInput">
+  <label>密码</label>
+  <input ng-model="user.password" type="password" required>
+  <div ng-messages="user.password.$error">
+    <div ng-message="required">必填项</div>
+  </div>
+</md-input-container>
+
+<md-button class="loginAndSignupSubmitBtn" ng-click="login()" class="md-primary">登录</md-button>
+<a class="loginAndSignupTransferBtn" ui-sref="auth.signup">未注册</a>

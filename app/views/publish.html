@@ -1,0 +1,26 @@
+<md-input-container>
+  <label>项目名称</label>
+  <input ng-model="project.name">
+</md-input-container>
+<br>
+<md-input-container>
+  <label>关键字</label>
+  <div>
+    <span ng-repeat="key in project.keyword">
+      <span>{{key}}</span>
+      <md-button class="md-raised md-warn" ng-click="deleteKeyword(key)">删除关键字</md-button>
+    </span>
+  </div>
+  <input ng-model="inputKeyword">
+  <md-button ng-click="addKeyword()" class="md-raised md-primary">添加关键字</md-button>
+</md-input-container>
+<br>
+
+  <label>类型</label>
+
+<div ng-repeat=" type in projectTypes">
+  <md-checkbox ng-model="ddd" aria-label="Checkbox" ng-change="checkProjectType(type)">
+    {{type.name}}
+  </md-checkbox>
+</div>
+

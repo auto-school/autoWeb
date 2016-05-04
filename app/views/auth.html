@@ -1,4 +1,29 @@
-auth
-<div ui-view> </div>
-<a ui-sref="auth.login"> login</a>
-<a ui-sref="auth.signup"> signup</a>
+<div class="authBackground">
+  <div class="authBackgroundIndex6"></div>
+  <div class="authBackgroundIndex5"></div>
+  <div class="authBackgroundIndex4"></div>
+  <div class="authBackgroundIndex3"></div>
+  <div class="authBackgroundIndex2"></div>
+  <div class="authBackgroundIndex1"></div>
+</div>
+
+
+<div class="authDiv">
+  <div class="loginAndSignupDiv" layout="column" layout-align="center center">
+
+    <div class="loginAndSignupInnerDiv">
+      <div class="loginAndSignupInnerDivIconPart" layout="row" layout-align="center center" >
+        <div class="loginAndSignupRadialGradientLeftSide"></div>
+        <div class="loginAndSignupRadialGradientLeft"></div>
+        <div class="loginAndSignupSchoolIconDiv">
+          <img src="../images/schoolIcon.png" class="loginAndSignupSchoolIcon" />
+        </div>
+        <div class="loginAndSignupRadialGradientRight"></div>
+        <div class="loginAndSignupRadialGradientRightSide"></div>
+      </div>
+
+      <div class="loginAndSignupInnerDivInputPart" layout="column" layout-align="center center" ui-view></div>
+
+    </div>
+  </div>
+</div>

@@ -19,10 +19,14 @@ angular
     'ngMaterial',
     'ui.router'
   ])
+  .value( "BASE_URL", "http://tztztztztz.org:5000/" )
+  .config(function ($httpProvider) {
+
+  })
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/auth/login");
+  $urlRouterProvider.otherwise("/auth/signup");
   //
   // Now set up the states
   $stateProvider
@@ -35,6 +39,11 @@ angular
       url: "/home",
       templateUrl: "views/home.html",
       controller: 'HomeCtrl'
+    })
+    .state('app.publish', {
+      url: "/publish",
+      templateUrl: "views/publish.html",
+      controller: 'PublishCtrl'
     })
     .state('auth', {
       url: "/auth",

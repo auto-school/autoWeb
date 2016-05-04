@@ -1,16 +1,28 @@
-signup
-
-<md-input-container>
+<md-input-container class="loginAndSignupInput">
   <label>用户名</label>
-  <input ng-model="user.name">
+  <input ng-model="user.name" required>
+  <div ng-messages="user.name.$error">
+    <div ng-message="required">必填项</div>
+  </div>
 </md-input-container>
-<md-input-container>
+<md-input-container class="loginAndSignupInput">
   <label>密码</label>
-  <input ng-model="user.password" type="password">
+  <input ng-model="user.password" type="password" required>
+  <div ng-messages="user.password.$error">
+    <div ng-message="required">必填项</div>
+  </div>
 </md-input-container>
-<md-input-container>
+<md-input-container class="loginAndSignupInput">
   <label>确认密码</label>
-  <input ng-model="user.verifiedPassword" type="password">
+  <input ng-model="user.verifiedPassword" type="password" required>
+  <div ng-messages="user.verifiedPassword.$error">
+    <div ng-message="required">必填项</div>
+    <!--    问题1     -->
+    <div ng-message=>{{user.password == user.verifiedPassword }} 密码不一致</div>
+  </div>
 </md-input-container>
-<div>{{user.password == user.verifiedPassword}}</div>
-<md-button ng-click="signup()" class="md-primary">注册</md-button>
+
+<md-button class="loginAndSignupSubmitBtn" ng-click="signup()" class="md-primary">注册</md-button>
+<a class="loginAndSignupTransferBtn" ui-sref="auth.login">已注册</a>
+
+

@@ -8,10 +8,9 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('HomeCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HomeCtrl', function ($scope, $state) {
+    
+    $scope.publish = function () {
+      $state.go( "app.publish");
+    }
   });
