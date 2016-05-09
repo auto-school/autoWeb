@@ -15,6 +15,7 @@ angular.module('autoApp')
 
     $scope.login = function() {
       var data = $scope.user;
+      
       $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode( $scope.user.name + ':' + $scope.user.password);
 
       $http.post( BASE_URL + "token", "" )

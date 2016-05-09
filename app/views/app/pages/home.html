@@ -1,0 +1,105 @@
+<div class="title">
+  <!--<div class="titleBackground">-->
+
+    <!--<img src="../../images/home_background1.jpg">-->
+  <!--</div>-->
+  <div class="titleContent" layout="column" layout-align="center center">
+    <span class="md-display-2">同济大学汽车学院创新项目管理系统</span>
+    <span class="md-headline">Innovation Project System</span>
+    <span class="md-headline">of College of Auto of Tongji University</span>
+    <div>
+      <md-button ng-click="join()" class="md-primary">我要加入</md-button>
+      <md-button ng-click="publish()" class="md-primary">我要发布</md-button>
+    </div>
+  </div>
+</div>
+
+<div class="newsCenter" layout="column" layout-align="center center">
+  <div class="newsCenterTitle" layout="row" layout-align="center center">
+    <span>NEWS</span>
+    <div layout="row" layout-align="center center">
+      <div class="newsCenterTitleTriangle"></div>
+      <span>新闻中心</span>
+    </div>
+  </div>
+  <div class="newsCenterContent" layout="column" layout-align="center center">
+    <div class="newsCenterBackground">
+      <div class="newsCenterBackgroundDiv">
+        <div class="newsCenterBackgroundIndex1"></div>
+        <div class="newsCenterBackgroundIndex2"></div>
+      </div>
+    </div>
+    <div ng-repeat="oneNews in news" class="newsCenterCell" layout="row" layout-align="center center">
+      <div class="newsCenterCellProject" layout="column" layout-align="center center">
+        <span>{{oneNews.type}}:</span>
+        <span>{{oneNews.title}}</span>
+        <span>{{oneNews.intro}}</span>
+        <div class="newsCenterCellTriangle"></div>
+      </div>
+      <div class="newsCenterCellDate" layout="row" layout-align="center center">
+        <span>{{oneNews.releasedDay}}</span>
+        <div layout="column" layout-align="center left">
+          <span>RELEASED ON</span>
+          <span>{{oneNews.releasedMonth}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="newsCenterMoreDiv">
+    <button>查看更多历史记录</button>
+  </div>
+</div>
+
+<div class="projectExhibition" layout="column" layout-align="center center">
+  <div class="projectExhibitionTitle">在创项目展示</div>
+  <div class="projectExhibitionContent" layout="column" layout-align="center center">
+    <div ng-repeat="project in projects" class="projectExhibitionCell" layout="row" layout-align="center center">
+      <div class="projectExhibitionCellTitle" layout="column" layout-align="center center">
+        <span>{{project.title}}</span>
+        <div class="projectExhibitionCellTitleTriangle isProgressive-{{project.isProgressive}}">
+          <span>累进</span>
+        </div>
+        <div layout="row" layout-align="center center">
+          <img src="../../images/home_projectExhibition_title.png"/>
+          <span>负责人:</span>
+          <span>{{project.dutyPerson}}</span>
+        </div>
+      </div>
+      <div class="projectExhibitionCellRecruit" layout="column" layout-align="center center">
+        <div layout="row" layout-align="center center">
+          <span class="isFullMenmber-{{project.hadNumber >= project.wantNumber}}">{{project.hadNumber}}</span>
+          <span>/{{project.wantNumber}}</span>
+        </div>
+        <span>招募情况</span>
+      </div>
+      <div class="projectExhibitionCellState" layout="column" layout-align="center center">
+        <span>{{project.state}}</span>
+      </div>
+      <div class="projectExhibitionCellDate" layout="column" layout-align="center center">
+        <span>{{project.startTime}}</span>
+        <span>{{project.endTime}}</span>
+        <md-button layout="column" layout-align="center center">
+          <img src="../../images/home_projectExhibition_date.png"/>
+          <span>立即加入</span>
+        </md-button>
+        <div class="projectExhibitionCellDateTriangle"></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="projectExhibitionMoreDiv">
+    <button>查看更多</button>
+  </div>
+</div>
+
+<div class="ads">
+  <!--<div class="adsBackground"></div>-->
+  <div class="adsContent">
+    <div class="adsContentLeft" layout="column" layout-align="center center">
+      <span ng-repeat="adsOnLeft in ads.left">{{adsOnLeft.val}}</span>
+    </div>
+    <div class="adsContentRight" layout="column" layout-align="center center">
+      <span ng-repeat="adsOnLeft in ads.right">{{adsOnLeft.val}}</span>
+    </div>
+  </div>
+</div>

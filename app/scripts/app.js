@@ -26,38 +26,38 @@ angular
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/auth/signup");
+  $urlRouterProvider.otherwise("/app/home");
   //
   // Now set up the states
   $stateProvider
     .state('app', {
       url: "/app",
-      templateUrl: "views/navigation.html",
+      templateUrl: "views/app/navigation.html",
       controller: 'NavigationCtrl'
     })
     .state('app.home', {
       url: "/home",
-      templateUrl: "views/home.html",
+      templateUrl: "views/app/pages/home.html",
       controller: 'HomeCtrl'
     })
     .state('app.publish', {
       url: "/publish",
-      templateUrl: "views/publish.html",
+      templateUrl: "views/app/pages/publish.html",
       controller: 'PublishCtrl'
     })
     .state('auth', {
       url: "/auth",
-      templateUrl: "views/auth.html",
+      templateUrl: "views/auth/auth.html",
       controller: 'AuthCtrl'
     })
     .state('auth.login', {
       url: "/login",
-      templateUrl: "views/login.html",
+      templateUrl: "views/auth/login.html",
       controller: 'LoginCtrl'
     })
     .state('auth.signup', {
       url: "/signup",
-      templateUrl: "views/signup.html",
+      templateUrl: "views/auth/signup.html",
       controller: 'SignupCtrl'
     })
 

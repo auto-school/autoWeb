@@ -15,10 +15,16 @@ angular.module('autoApp')
     $scope.user.verifiedPassword = "";
 
     $scope.signup = function () {
-      var data = {'username': $scope.user.name, 'password': $scope.user.password}
-      $http.post( "http://tztztztztz.org:5000/user", data)
-        .success(function (data, status, headers, config) {
-          console.log(data);
-        })
+      
+      if ($scope.user.name == $scope.user.password) {
+        var data = {'username': $scope.user.name, 'password': $scope.user.password}
+        $http.post( "http://tztztztztz.org:5000/user", data)
+          .success(function (data, status, headers, config) {
+            console.log(data);
+          })
+      } else {
+        //alert
+      }
+      
     }
   });
