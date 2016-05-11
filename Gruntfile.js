@@ -224,7 +224,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -420,7 +420,12 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }]
+        }, {
+            expand: true,
+            cwd: '<%= yeoman.app %>/views',
+            dest: '<%= yeoman.dist %>/views',
+            src: ['**']
+          }]
       },
       styles: {
         expand: true,
@@ -484,20 +489,18 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  // remove cdnify, filerev
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'postcss',
-    'ngtemplates',
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
     'usemin',
     'htmlmin'
   ]);
