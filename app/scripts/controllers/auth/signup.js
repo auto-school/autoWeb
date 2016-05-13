@@ -10,21 +10,15 @@
 angular.module('autoApp')
   .controller('SignupCtrl', function ($scope, $http) {
     $scope.user = {};
-    $scope.user.name = "";
-    $scope.user.password = "";
-    $scope.user.verifiedPassword = "";
+    $scope.verifiedPassword = "";
 
     $scope.signup = function () {
-      
-      if ($scope.user.name == $scope.user.password) {
-        var data = {'username': $scope.user.name, 'password': $scope.user.password}
-        $http.post( "http://tztztztztz.org:5000/user", data)
-          .success(function (data, status, headers, config) {
-            console.log(data);
-          })
-      } else {
-        //alert
-      }
-      
+      $http.post( "http://tztztztztz.org:5000/user", $scope.user)
+        .success(function (data, status, headers, config) {
+          console.log(data);
+        })
+        .error(function () {
+          console.log("error")
+        })
     }
   });

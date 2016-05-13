@@ -1,5 +1,12 @@
 <md-input-container class="loginAndSignupInput">
   <label>用户名</label>
+  <input ng-model="user.username" required>
+  <div ng-messages="user.username.$error">
+    <div ng-message="required">必填项</div>
+  </div>
+</md-input-container>
+<md-input-container class="loginAndSignupInput">
+  <label>姓名</label>
   <input ng-model="user.name" required>
   <div ng-messages="user.name.$error">
     <div ng-message="required">必填项</div>
@@ -14,12 +21,12 @@
 </md-input-container>
 <md-input-container class="loginAndSignupInput">
   <label>确认密码</label>
-  <input ng-model="user.verifiedPassword" type="password" required>
-  <div ng-messages="user.verifiedPassword.$error">
+  <input ng-model="verifiedPassword" type="password" required>
+  <div ng-messages="verifiedPassword.$error">
     <div ng-message="required">必填项</div>
     <!--    问题1     -->
   </div>
-  <div ng-show="user.password != user.verifiedPassword" >密码不一致</div>
+  <div ng-show="user.password != verifiedPassword" >密码不一致</div>
 </md-input-container>
 
 <md-button class="loginAndSignupSubmitBtn" ng-click="signup()" class="md-primary">注册</md-button>
