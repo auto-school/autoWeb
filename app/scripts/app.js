@@ -31,34 +31,44 @@ angular
   // Now set up the states
   $stateProvider
     .state('app', {
-      url: "/app",
-      templateUrl: "views/app/navigation.html",
+      url: '/app',
+      templateUrl: 'views/app/navigation.html',
       controller: 'NavigationCtrl'
     })
     .state('app.home', {
-      url: "/home",
-      templateUrl: "views/app/pages/home.html",
+      url: '/home',
+      templateUrl: 'views/app/pages/home.html',
       controller: 'HomeCtrl'
     })
     .state('app.publish', {
       url: "/publish",
-      templateUrl: "views/app/pages/publish.html",
+      templateUrl: 'views/app/pages/publish.html',
       controller: 'PublishCtrl'
     })
     .state('auth', {
       url: "/auth",
-      templateUrl: "views/auth/auth.html",
+      templateUrl: 'views/auth/auth.html',
       controller: 'AuthCtrl'
     })
     .state('auth.login', {
       url: "/login",
-      templateUrl: "views/auth/login.html",
+      templateUrl: 'views/auth/login.html',
       controller: 'LoginCtrl'
     })
     .state('auth.signup', {
       url: "/signup",
-      templateUrl: "views/auth/signup.html",
+      templateUrl: 'views/auth/signup.html',
       controller: 'SignupCtrl'
+    })
+    .state('admin', {
+      url:"/admin",
+      templateUrl:'views/admin/base.html',
+      controller:'AdminBaseCtrl'
+    })
+    .state('admin.login', {
+      url:"/login",
+      templateUrl:'views/admin/login.html',
+      controller:'AdminLoginCtrl'
     })
 
 });
