@@ -8,10 +8,14 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('NavigationCtrl', function () {
+  .controller('NavigationCtrl', function ($scope, UserSrv) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.user = UserSrv.getUser();
+
+    console.log( $scope.user );
   });

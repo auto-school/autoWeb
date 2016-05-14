@@ -8,29 +8,36 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('LoginCtrl', function ($scope, $http, Base64, BASE_URL, TokenService, $state) {
+  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast) {
     $scope.user = {};
-    $scope.user.name = "";
-    $scope.user.password = "";
+    $scope.user.name = '';
+    $scope.user.password = '';
 
     $scope.login = function() {
-      var data = $scope.user;
-      
-      $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode( $scope.user.name + ':' + $scope.user.password);
 
-      $http.post( BASE_URL + "token", "" )
+      UserSrv.login($scope.user)
         .success(function (data, status, headers, config) {
-          TokenService.setToken(data.data.token);
-          $state.go("app.home");
-
+          UserSrv.loginSuccess(data);
+          $state.go('app.home');
 
         })
         .error(function(data, status, headers, config) {
-          alert(data);
+
+          $scope.notify('error');
           // called asynchronously if an error occurs
           // or server returns response with an error status.
         });
 
+    }
+
+
+    $scope.notify = function (text) {
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent(text)
+          .position('top right')
+          .hideDelay(3000)
+      );
     }
 
 
