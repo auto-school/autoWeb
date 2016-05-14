@@ -7,20 +7,17 @@
  * # AdminloginCtrl
  * Controller of the autoApp
  */
+
 angular.module('autoApp')
-  .controller('AdminLoginCtrl', function ($scope, UserSrv, $state) {
+  .controller('AdminLoginCtrl', function ($scope, adminSrv, $state) {
     $scope.user = {};
     $scope.login = function () {
-      UserSrv.login($scope.user)
+      adminSrv.login($scope.user)
         .success(function (data, status, headers, config) {
-
-          UserSrv.loginSuccess(data);
-
           $state.go('app.home');
-
         })
         .error(function(data, status, headers, config) {
-
+          console.log(status);
         });
     }
   });

@@ -12,7 +12,9 @@ angular.module('autoApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     this.BASE_URL = 'http://localhost:5000/';
-    
+
     this.LOGIN = this.BASE_URL + 'token';
+
+    this.ADMIN_LOGIN = this.BASE_URL + 'admin/token'
 
   });

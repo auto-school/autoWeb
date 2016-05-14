@@ -23,6 +23,7 @@ angular
   .config(function ($httpProvider) {
 
   })
+
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
@@ -62,13 +63,19 @@ angular
     })
     .state('admin', {
       url:"/admin",
-      templateUrl:'views/admin/base.html',
+      templateUrl:'views/admin/authback.html',
       controller:'AdminBaseCtrl'
     })
     .state('admin.login', {
       url:"/login",
       templateUrl:'views/admin/login.html',
       controller:'AdminLoginCtrl'
+    })
+
+    .state('admin.app', {
+      url:"/app",
+      templateUrl:'views/admin/sidenav.html',
+      controller:'AdminSidenavCtrl'
     })
 
 });
