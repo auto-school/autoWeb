@@ -19,7 +19,7 @@ angular
     'ngMaterial',
     'ui.router'
   ])
-  .value( "BASE_URL", "http://tztztztztz.org:5000/" )
+  .value( "BASE_URL", "http://localhost:5000/" )
   .config(function ($httpProvider) {
 
   })

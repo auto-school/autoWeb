@@ -10,16 +10,13 @@
 angular.module('autoApp')
   .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast) {
     $scope.user = {};
-    $scope.user.name = '';
-    $scope.user.password = '';
 
     $scope.login = function() {
 
       UserSrv.login($scope.user)
         .success(function (data, status, headers, config) {
-          UserSrv.loginSuccess(data);
+          console.log('login succuss!');
           $state.go('app.home');
-
         })
         .error(function(data, status, headers, config) {
 
@@ -27,7 +24,6 @@ angular.module('autoApp')
           // called asynchronously if an error occurs
           // or server returns response with an error status.
         });
-
     }
 
 
