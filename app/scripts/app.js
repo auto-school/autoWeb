@@ -21,9 +21,8 @@ angular
   ])
   .value( "BASE_URL", "http://localhost:5000/" )
   .config(function ($httpProvider) {
-
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
   })
-
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
@@ -76,6 +75,12 @@ angular
       url:"/app",
       templateUrl:'views/admin/sidenav.html',
       controller:'AdminSidenavCtrl'
+    })
+
+    .state('admin.app.project', {
+      url:"/project",
+      templateUrl:'views/admin/checkproject.html',
+      controller:'checkProjectCtrl'
     })
 
 });

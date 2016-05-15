@@ -15,6 +15,8 @@ angular.module('autoApp')
 
     this.LOGIN = this.BASE_URL + 'token';
 
-    this.ADMIN_LOGIN = this.BASE_URL + 'admin/token'
+    this.ADMIN_LOGIN = this.BASE_URL + 'admin/token';
+    
+    this.FETCH_PROJECTS = this.BASE_URL + 'projects';
 
   });
