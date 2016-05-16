@@ -17,9 +17,15 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
-    'ui.router'
+    'ui.router',
+    'ngMenuSidenav'
   ])
   .value( "BASE_URL", "http://localhost:5000/" )
+
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('myInterceptor')
+  })
+
   .config(function ($httpProvider) {
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
   })

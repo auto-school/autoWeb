@@ -1,2 +1,75 @@
-<a ui-sref="admin.app.project">项目</a>
-<div ui-view=""></div>
+
+
+<div layout="column">
+
+<md-toolbar layout="row">
+  <div class="md-toolbar-tools">
+
+    <md-button ng-click="toggleSidenav('left')" class="md-icon-button">
+      <md-icon>
+        <i class="material-icons md-24">menu</i>
+      </md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
+<div layout="row" flex>
+  <md-sidenav style="overflow-y: scroll" layout="column" class="md-sidenav-left md-whiteframe-z2"
+              md-component-id="left">
+
+    <div layout="row" layout-padding>
+      <h1 class="md-title">olimou/material-sidenav-menu</h1>
+    </div>
+
+    <md-divider></md-divider>
+
+    <md-menu-sidenav>
+      <md-menu-sidenav-item>
+        <md-menu-sidenav-title>
+          <md-toogle-menu layout="row" flex>
+            <md-icon flex="15">face</md-icon>
+            <h1 class="md-body-2" flex>项目管理</h1>
+          </md-toogle-menu>
+
+          <md-icon flex="15">pause</md-icon>
+        </md-menu-sidenav-title>
+
+        <md-menu-sidenav-content>
+          <md-menu-sidenav-subitem ui-sref="admin.app.project">审核项目</md-menu-sidenav-subitem>
+          <md-menu-sidenav-subitem>项目登记</md-menu-sidenav-subitem>
+          <md-menu-sidenav-subitem>Item 3</md-menu-sidenav-subitem>
+        </md-menu-sidenav-content>
+      </md-menu-sidenav-item>
+
+      <md-divider></md-divider>
+      <md-menu-sidenav-item>
+        <md-menu-sidenav-title>
+          <md-toogle-menu layout="row" flex>
+            <md-icon flex="15">face</md-icon>
+            <h1 class="md-body-2" flex>项目管理</h1>
+          </md-toogle-menu>
+
+          <md-icon flex="15">pause</md-icon>
+        </md-menu-sidenav-title>
+
+        <md-menu-sidenav-content>
+          <md-menu-sidenav-subitem ui-sref="admin.app.project">审核项目</md-menu-sidenav-subitem>
+          <md-menu-sidenav-subitem>项目登记</md-menu-sidenav-subitem>
+          <md-menu-sidenav-subitem>Item 3</md-menu-sidenav-subitem>
+        </md-menu-sidenav-content>
+      </md-menu-sidenav-item>
+
+    </md-menu-sidenav>
+  </md-sidenav>
+
+  <div layout="column" flex id="content">
+    <md-content layout="column" flex class="md-padding" ng-view="">
+
+    </md-content>
+  </div>
+</div>
+</div>
+
+<div layout="column">
+  <div ui-view=""></div>
+</div>
