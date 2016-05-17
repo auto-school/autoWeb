@@ -99,11 +99,31 @@ angular
       templateUrl: 'views/app/pages/home.html',
       controller: 'HomeCtrl'
     })
+
     .state('app.publish', {
       url: "/publish",
       templateUrl: 'views/app/pages/publish.html',
       controller: 'PublishCtrl'
     })
+
+    .state('app.project',{
+      url: '/project',
+      template: '<div ui-view></div>'
+    })
+
+    .state('app.project.list',{
+      url: '/list',
+      templateUrl: 'views/app/pages/project/list.html',
+      controller: 'ProjectListCtrl'
+    })
+
+    .state('app.project.detail',{
+      url: '/detail/:project_id',
+      templateUrl: 'views/app/pages/project/detail.html',
+      controller: 'ProjectDetailCtrl'
+    })
+
+
     .state('auth', {
       url: "/auth",
       templateUrl: 'views/auth/auth.html',
@@ -119,6 +139,10 @@ angular
       templateUrl: 'views/auth/signup.html',
       controller: 'SignupCtrl'
     })
+
+
+
+
     .state('admin', {
       url:"/admin",
       templateUrl:'views/admin/authback.html',
@@ -141,6 +165,7 @@ angular
       templateUrl:'views/admin/checkproject.html',
       controller:'checkProjectCtrl'
     })
+
 
 })
 

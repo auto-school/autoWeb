@@ -19,10 +19,8 @@ angular.module('autoApp')
         .success(function (data) {
         $rootScope.user = data.data.user;
         TokenService.setToken(data.data.token);
-        console.log('take token is '+data.data.token)
         Locals.setObject('user', $rootScope.user);
         Locals.set('token', data.data.token);
-        console.log('success');
       })
         .error(function () {
             console.log('error');

@@ -21,6 +21,7 @@ angular.module('autoApp')
         Locals.setObject('user', $rootScope.user);
         Locals.set('token', data.data.token);
       });
+      
       return promise
     };
 
