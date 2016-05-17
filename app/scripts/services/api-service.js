@@ -19,4 +19,8 @@ angular.module('autoApp')
 
     this.FETCH_PROJECTS = this.BASE_URL + 'projects';
 
+    this.CHECK_PROJECT = function (project_id) {
+      return this.BASE_URL + 'admin/' +  'project/' + project_id + '/approval';
+    }
+    
   });
