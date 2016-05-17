@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'ngMaterial',
     'ui.router',
-    'ngMenuSidenav'
+    'sasrio.angular-material-sidenav'
   ])
   .value( "BASE_URL", "http://localhost:5000/" )
 
@@ -26,9 +26,62 @@ angular
     $httpProvider.interceptors.push('myInterceptor')
   })
 
-  .config(function ($httpProvider) {
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+  // .config(function ($httpProvider) {
+  //   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+  // })
+
+  .config(function (ssSideNavSectionsProvider, $mdThemingProvider) {
+    ssSideNavSectionsProvider.initWithSections([{
+      id: 'toogle_1',
+      type: 'heading',
+      children: [{
+        name: '项目管理',
+        type: 'toggle',
+        pages: [{
+          id: 'toogle_1_link_1',
+          name: '项目审核',
+          state: 'admin.app.project'
+        }, {
+          id: 'toogle_1_link_2',
+          name: '新建优秀项目展示',
+          state: 'app'
+        }, {
+          id: 'toogle_1_link_3',
+          name: '项目通过',
+          state: 'app'
+        }]
+      },
+        {
+          name: '通知',
+          type: 'toggle',
+          pages: [{
+            id: 'toogle_1_link_1',
+            name: '新建通知',
+            state: 'admin.app.project'
+          }, {
+            id: 'toogle_1_link_2',
+            name: '通知管理',
+            state: 'app'
+          }]
+        },
+        {
+          name: '用户',
+          type: 'toggle',
+          pages: [{
+            id: 'toogle_1_link_1',
+            name: '用户管理',
+            state: 'admin.app.project'
+          }, {
+            id: 'toogle_1_link_2',
+            name: '新建用户',
+            state: 'app'
+          }]
+        }]
+    }]);
+    ssSideNavSectionsProvider.initWithTheme($mdThemingProvider);
   })
+
+
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
@@ -89,4 +142,9 @@ angular
       controller:'checkProjectCtrl'
     })
 
+})
+
+.run(function ($rootScope, Locals, TokenService) {
+    $rootScope.user = Locals.getObject('user');
+    TokenService.setToken(Locals.get('token'));
 });

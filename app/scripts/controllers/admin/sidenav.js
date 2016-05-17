@@ -9,11 +9,19 @@
  */
 
 angular.module('autoApp')
-  .controller('AdminSidenavCtrl', function ($scope, $mdSidenav) {
-    $scope.index = 0;
+  .controller('AdminSidenavCtrl', function ($scope, $mdSidenav, ssSideNav, $timeout, $log) {
+    
+    $scope.menu = ssSideNav;
 
-    $scope.toggleSidenav = function (menuId) {
-      $mdSidenav(menuId).toggle();
-    };
+    // Show or Hide menu
+    ssSideNav.setVisible('toogle_1', true);
+    ssSideNav.setVisibleFor([{
+      id: 'toogle_1_link_2',
+      value: true
+    }, {
+      id: 'toogle_1_link_1',
+      value: true
+    }]);
+
   });
 

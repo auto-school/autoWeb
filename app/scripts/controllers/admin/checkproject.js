@@ -3,8 +3,8 @@
  */
 
 angular.module('autoApp')
-  .controller('checkProjectCtrl', function (ProjectSrv) {
-      ProjectSrv.fetchAllProject()
+  .controller('checkProjectCtrl', function (ProjectSrv, NoticeService) {
+      ProjectSrv.fetchAllNeedToCheckProject()
         .success(function (data, status, headers, config) {
           console.log(data);
         })

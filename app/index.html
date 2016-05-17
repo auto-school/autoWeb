@@ -9,7 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="bower_components/angular-material-sidenav-menu/material-menu-sidenav.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-sidenav/angular-material-sidenav.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/auth.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="autoApp">
+  <body ng-app="autoApp" >
     <!--[if lte IE 8]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -50,7 +50,7 @@
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-material-sidenav-menu/material-menu-sidenav.min.js"></script>
+    <script src="bower_components/angular-material-sidenav/angular-material-sidenav.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -64,18 +64,21 @@
         <script src="scripts/controllers/auth/auth.js"></script>
         <script src="scripts/controllers/auth/login.js"></script>
         <script src="scripts/controllers/auth/signup.js"></script>
-        <script src="scripts/services/tokenservice.js"></script>
+        <script src="scripts/services/token-service.js"></script>
         <script src="scripts/controllers/app/pages/publish.js"></script>
         <script src="scripts/services/base64.js"></script>
         <script src="scripts/controllers/admin/login.js"></script>
         <script src="scripts/controllers/admin/base.js"></script>
-        <script src="scripts/services/userservice.js"></script>
-        <script src="scripts/services/apiservice.js"></script>
-        <script src="scripts/services/adminservice.js"></script>
+        <script src="scripts/services/user-service.js"></script>
+        <script src="scripts/services/api-service.js"></script>
+        <script src="scripts/services/admin-service.js"></script>
         <script src="scripts/controllers/admin/sidenav.js"></script>
         <script src="scripts/controllers/admin/checkproject.js"></script>
-        <script src="scripts/services/projectservice.js"></script>
-        <script src="scripts/services/tokenInjector.js"></script>
+        <script src="scripts/services/project-service.js"></script>
+        <script src="scripts/services/token-Injector.js"></script>
+        <script src="scripts/services/locals.js"></script>
+        <script src="scripts/services/ack-service.js"></script>
+        <script src="scripts/services/notice-service.js"></script>
         <!-- endbuild -->
 </body>
 </html>
