@@ -14,8 +14,8 @@ angular.module('autoApp')
       return $http.get(ApiSrv.FETCH_PROJECT(project_id));
     };
 
-    this.applyProject = function(project_id, reason){
-      var resource = {reason:reason, project:{id:project_id}};
+    this.applyProject = function(project_id, reason, role){
+      var resource = {reason:reason, project:{id:project_id}, role:role};
       return $http.post(ApiSrv.APPLICATION, resource);
     };
 

@@ -15,7 +15,7 @@ angular.module('autoApp')
       });
 
     $scope.applyProject = function (project) {
-      ProjectSrv.applyProject(project._id, '没有原因')
+      ProjectSrv.applyProject(project._id, '没有原因', 0)
         .success(function (data) {
           console.log(data);
         })

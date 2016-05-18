@@ -15,7 +15,8 @@ angular.module('autoApp')
       403: '权限不足',
       401: '登陆失败',
       400: '登陆成功',
-      322: '申请成功'
+      322: '申请成功',
+      323: '注册成功'
     };
     
     this.getAck = function (code) {
