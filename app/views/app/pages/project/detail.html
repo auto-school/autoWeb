@@ -1,1 +1,9 @@
-detail
+<md-content>
+  <h2>项目名称</h2>
+  <span>{{project.name}}</span>
+  <h2>负责人</h2>
+  <span>{{project.creator.name}}</span>
+  <h2>介绍</h2>
+  <span>{{project.introduction}}</span>
+  <md-button class="md-primary" ng-click="applyProject(project)">申请加入该项目</md-button>
+</md-content>
