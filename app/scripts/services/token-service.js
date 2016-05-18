@@ -13,7 +13,7 @@ angular.module('autoApp')
     this.token = "";
     this.getToken = function () {
       return this.token;
-    }
+    };
     this.setToken = function ( newToken ) {
       this.token = newToken;
     }

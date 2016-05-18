@@ -1,0 +1,13 @@
+<md-list>
+  <md-list-item class="md-3-line" ng-repeat="project in projects">
+    <div class="md-list-item-text" layout="row">
+      <label>项目名称:</label>
+      <span>{{ project.name }}</span>
+      <label>创建人:</label>
+      <span>{{ project.creator.name }}</span>
+      <label>项目介绍</label>
+      <span> {{ project.introduction }}</span>
+      <md-button ng-click="detail(project)">查看详情</md-button>
+    </div>
+  </md-list-item>
+</md-list>

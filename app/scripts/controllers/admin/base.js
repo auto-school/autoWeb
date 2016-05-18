@@ -8,5 +8,5 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('AdminBaseCtrl', function () {
+  .controller('AdminBaseCtrl', function ($q,$timeout) {
   });

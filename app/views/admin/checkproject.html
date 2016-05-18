@@ -1,0 +1,19 @@
+<md-content layout="row" layout-align="center center">
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat="project in projects">
+      <div class="md-list-item-text" layout="row">
+        <label>项目名称:</label>
+        <span>{{ project.name }}</span>
+        <label>创建人:</label>
+        <span>{{ project.creator.name }}</span>
+        <label>项目介绍</label>
+        <span> {{ project.introduction }}</span>
+        <md-button ng-show="project.status == 0" class="md-raised" ng-click="checkProject(project)">审核通过</md-button>
+        <span ng-show="project.status == 1" class="md-raised" >审核已通过</span>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
+
+
+

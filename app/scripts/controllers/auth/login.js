@@ -8,27 +8,20 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast) {
+  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast,$http,Base64,$rootScope) {
     $scope.user = {};
-    $scope.user.name = '';
-    $scope.user.password = '';
-
     $scope.login = function() {
-
       UserSrv.login($scope.user)
         .success(function (data, status, headers, config) {
-          UserSrv.loginSuccess(data);
+          console.log('login succuss!');
           $state.go('app.home');
-
         })
         .error(function(data, status, headers, config) {
-
           $scope.notify('error');
           // called asynchronously if an error occurs
           // or server returns response with an error status.
         });
-
-    }
+    };
 
 
     $scope.notify = function (text) {
@@ -38,7 +31,7 @@ angular.module('autoApp')
           .position('top right')
           .hideDelay(3000)
       );
-    }
+    };
 
 
   });
