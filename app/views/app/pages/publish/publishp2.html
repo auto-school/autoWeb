@@ -1,0 +1,81 @@
+<div class="publishState" layout="row" layout-align="center center">
+  <div></div>
+  <div><span class="md-title">项目情况</span></div>
+  <div></div>
+  <div><span class="md-title">成员情况</span></div>
+  <div></div>
+</div>
+
+<div class="publishInformation">
+
+  <div class="publishInformationItem publishInformationMentor">
+    <div>
+      <pan class="md-title">校内导师</pan>
+      <md-input-container class="publishInformationItemInside publishInformationItemInside_TSpace">
+        <label>导师Id</label>
+        <input ng-model="mentor.id" aria-label="校内导师">
+      </md-input-container>
+      <md-input-container class="publishInformationItemInside publishInformationItemInside_TSpace">
+        <label>导师姓名</label>
+        <input ng-model="mentor.name" aria-label="校内导师">
+      </md-input-container>
+    </div>
+    <div>
+      <pan class="md-title">校外导师</pan>
+      <md-input-container class="publishInformationItemInside publishInformationItemInside_TSpace">
+        <label>导师Id</label>
+        <input ng-model="outside_mentor.id" aria-label="校外导师">
+      </md-input-container>
+      <md-input-container class="publishInformationItemInside publishInformationItemInside_TSpace">
+        <label>导师姓名</label>
+        <input ng-model="outside_mentor.name" aria-label="校外导师">
+      </md-input-container>
+    </div>
+  </div>
+
+  <div class="publishInformationItem">
+    <pan class="md-title">成员数</pan>
+    <md-input-container class="publishInformationItemInside">
+      <input type="number" step="1" ng-model="project.member_number" aria-labe="成员数">
+    </md-input-container>
+  </div>
+
+  <div class="publishInformationItem">
+    <pan class="md-title">成员要求</pan>
+    <md-input-container class="publishInformationItemInside">
+      <input ng-model="project.member_demand" aria-label="需要成员">
+    </md-input-container>
+  </div>
+
+  <div class="publishInformationItem publishInformationMember">
+    <span class="md-title">已有成员</span>
+    <md-chips class="publishInformationItemInside publishInformationItemInside_TSpace hasMember-{{team_member.length != 0}}"
+              ng-model="team_member"
+              readonly= false>
+      <md-chip-template>
+        <strong>{{$chip.id}} {{$chip.name}}</strong>
+        <span class="isChargeMan-{{$chip.isChargeMan}}">(负责人)</span>
+      </md-chip-template>
+    </md-chips>
+    <div class="publishInformationItemInside publishInformationItemInside_TSpace publishInformationItemInside_BSpace">
+      <md-input-container>
+        <label>成员Id</label>
+        <input ng-model="newMember.id" aria-label="成员Id">
+      </md-input-container>
+      <md-input-container>
+        <label>成员姓名</label>
+        <input ng-model="newMember.name" aria-label="成员姓名">
+      </md-input-container>
+      <md-checkbox ng-model="newMember.isChargeMan" aria-label="Checkbox">
+        责任人
+      </md-checkbox>
+      <md-button class="md-primary" ng-click="addMember($event)">添加成员</md-button>
+    </div>
+  </div>
+
+</div>
+
+<div class="publishNextButton">
+  <md-button class="publishNextBtn" ng-click="frontPage()" class="md-primary">上一步</md-button>
+  <md-button class="publishNextBtn" ng-click="submit()" class="md-primary">提交</md-button>
+</div>

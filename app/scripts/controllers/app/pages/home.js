@@ -11,7 +11,7 @@ angular.module('autoApp')
   .controller('HomeCtrl', function ($scope, $state) {
 
     $scope.publish = function () {
-      $state.go( "app.publish");
+      $state.go( "app.publish.step1");
     }
     $scope.join = function () {
       $state.go( "app.join");

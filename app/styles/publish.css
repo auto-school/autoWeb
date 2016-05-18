@@ -1,0 +1,319 @@
+.mainView {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1000px;
+}
+
+.publishBackground {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow:hidden;
+}
+
+.publishBackgroundIndex1-1 {
+
+  position: absolute;
+  left: 150px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 250px 375px 0 375px;
+  border-color: #443d36 transparent transparent transparent;
+
+}
+
+.publishBackgroundIndex1-2 {
+  position: absolute;
+  left: -100px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 400px 600px 0 600px;
+  border-color: #ff453d transparent transparent transparent;
+
+}
+
+.publishBackgroundIndex1-3 {
+
+  position: absolute;
+  left: -100px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 450px 675px 0 675px;
+  border-color: #1de6a8 transparent transparent transparent;
+
+}
+
+
+.publishBackgroundIndex1-4 {
+  position: absolute;
+  left: -100px;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 500px 750px 0 750px;
+  border-color: #a6deb6 transparent transparent transparent;
+
+}
+
+.publishBackgroundIndex1-5 {
+  position: absolute;
+  left: -100px;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 1500px 1000px 0;
+  border-color: transparent #dce1cb transparent transparent;
+
+}
+
+.publishBackgroundIndex1-6 {
+
+  position: absolute;
+  left: -140px;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 1500px 1000px 0;
+  border-color: transparent #b1ccb7 transparent transparent;
+
+}
+
+.publishBackgroundIndex2-1 {
+
+  position: absolute;
+  bottom: 0;
+  right: 150px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 375px 250px 375px;
+  border-color: transparent transparent #443d36 transparent;
+
+}
+
+.publishBackgroundIndex2-2 {
+  position: absolute;
+  bottom: 0;
+  right: -100px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 600px 400px 600px;
+  border-color: transparent transparent  #ff453d transparent;
+
+}
+
+.publishBackgroundIndex2-3 {
+  position: absolute;
+  bottom: 0;
+  right: -100px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 675px 450px 675px;
+  border-color: transparent transparent #1de6a8 transparent;
+
+}
+
+
+.publishBackgroundIndex2-4 {
+  position: absolute;
+  bottom: 0;
+  right: -100px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 750px 500px 750px;
+  border-color: transparent transparent #a6deb6 transparent;
+
+}
+
+.publishBackgroundIndex2-5 {
+  position: absolute;
+  bottom: 0;
+  right: -100px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 1000px 0 0 1500px;
+  border-color: transparent transparent transparent #dce1cb;
+
+}
+
+.publishBackgroundIndex2-6 {
+
+  position: absolute;
+  bottom: 0 ;
+  right: -140px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 1000px 0 0 1500px ;
+  border-color: transparent transparent transparent #b1ccb7;
+
+}
+
+.publishContentDiv {
+  height: 70%;
+  position: relative;
+  background: #ffffff;
+  width: 70%;
+  padding: 8% 5%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.publishState {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+
+.publishState div:nth-child(1), .publishState div:nth-child(3), .publishState div:nth-child(5){
+  height: 5px;
+  width: 30%;
+  background: #000000;
+}
+.publishState div:nth-child(1) {
+  border-radius: 2px 0 0 2px;
+}
+.publishState div:nth-child(5){
+  border-radius: 0 2px 2px 0;
+}
+.publishState div:nth-child(2), .publishState div:nth-child(4) {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  background: transparent;
+  border: solid 5px #000000;
+  border-radius: 50%;
+  position: relative;
+}
+
+.publishState div span {
+  top: -33px;
+  left: -33px;
+  width: 100px;
+  position: absolute;
+  color: #000000;
+  display: block;
+}
+
+.publishInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.publishInformationItem {
+  display: block;
+  width: 100%;
+}
+
+.publishInformationItemInside {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.publishInformationItemInside_noW {
+  display: block;
+  margin: 0;
+}
+.publishInformationItemInside_BSpace {
+  margin-bottom: 28px;
+}
+.publishInformationItemInside_TSpace {
+  margin-top: 15px;
+}
+
+md-checkbox {
+  margin-bottom: 0;
+}
+.md-title {
+  vertical-align: text-top;
+}
+.publishNextButton {
+  display: inline-block;
+  align-self: flex-end;
+  margin-top: 5%;
+}
+
+.publishNextBtn {
+  background: #a6deb6;
+  color: #ffffff;
+}
+
+.publishInformationType > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.publishInformationType > div > div {
+  margin-right: 30px;
+}
+
+.publishInformationMentor {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.publishInformationMentor > div {
+  width: 30%;
+  margin-right: 20%;
+}
+
+.publishInformationMember {
+  display: flex;
+  flex-direction: column;
+}
+.publishInformationMember > div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.publishInformationMember md-input-container {
+  display: block;
+  margin: 0;
+  width: 30%;
+}
+
+.publishInformationMember md-input-container .md-errors-spacer {
+  display: none;
+}
+.publishInformationMember > md-chips .md-chip-input-container input {
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.publishInformationMember > md-chips .md-chips, .publishInformationMember > md-chips .md-focused {
+  cursor: default;
+  box-shadow: none !important;
+}
+
+.publishInformationMember md-checkbox {
+  width: 100px;
+}
+.isChargeMan-false {
+  display: none;
+}
+
+.hasMember-false {
+  display: none;
+}
