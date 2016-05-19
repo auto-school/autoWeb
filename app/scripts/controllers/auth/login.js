@@ -8,8 +8,9 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast,$http,Base64,$rootScope) {
+  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast) {
     $scope.user = {};
+    
     $scope.login = function() {
       UserSrv.login($scope.user)
         .success(function (data, status, headers, config) {

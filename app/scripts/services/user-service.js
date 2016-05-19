@@ -14,7 +14,7 @@ angular.module('autoApp')
     this.login = function (user) {
       $rootScope.user = undefined;
       $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode( user.username + ':' + user.password);
-      var promise = $http.post( ApiSrv.LOGIN, "" );
+      var promise = $http.post(ApiSrv.LOGIN, "");
       promise.success(function (data) {
         $rootScope.user = data.data.user;
         TokenService.setToken(data.data.token);
@@ -22,12 +22,23 @@ angular.module('autoApp')
         Locals.set('token', data.data.token);
       });
 
-      return promise
+      return promise;
     };
 
-    this.user = {};
+    this.signup = function (user) {
+      $rootScope.user = undefined;
+      console.log(user);
+      var url = ApiSrv.BASE_URL + "user";
+      var promise = $http.post(url, user);
+      promise.success(function (data) {
+        $rootScope.user = user;
+        
+        //TokenService.setToken(data.data.token);
+        Locals.setObject('user', $rootScope.user);
+        //Locals.set('token', data.data.token);
+      });
 
-    this.getUser = function () {
-      return this.user;
+      return promise;
     };
+
   });
