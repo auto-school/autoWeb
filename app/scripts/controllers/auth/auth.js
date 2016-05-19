@@ -8,10 +8,6 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('AuthCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AuthCtrl', function ($timeout, $q) {
+    
   });

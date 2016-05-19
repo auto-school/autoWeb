@@ -11,7 +11,9 @@ angular.module('autoApp')
   .service('ApiSrv', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
-    this.BASE_URL = 'http://localhost:5000/';
+    //this.BASE_URL = 'http://localhost:5000/';
+
+    this.BASE_URL = 'http://tztztztztz.org:5000/';
 
     this.LOGIN = this.BASE_URL + 'token';
 

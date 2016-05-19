@@ -102,17 +102,7 @@ angular
 
     .state('app.publish', {
       url: "/publish",
-      templateUrl: 'views/app/pages/publish/publish.html',
-      controller: 'PublishCtrl'
-    })
-    .state('app.publish.step1', {
-      url: "/publishStep1",
-      templateUrl: 'views/app/pages/publish/publishp1.html',
-      controller: 'PublishCtrl'
-    })
-    .state('app.publish.step2', {
-      url: "/publishStep2",
-      templateUrl: 'views/app/pages/publish/publishp2.html',
+      templateUrl: 'views/app/pages/publish.html',
       controller: 'PublishCtrl'
     })
 

@@ -1,0 +1,105 @@
+<div  class="mainView">
+  <div class="publishBackground">
+    <div class="publishBackgroundIndex1-6"></div>
+    <div class="publishBackgroundIndex1-5"></div>
+    <div class="publishBackgroundIndex1-4"></div>
+    <div class="publishBackgroundIndex1-3"></div>
+    <div class="publishBackgroundIndex1-2"></div>
+    <div class="publishBackgroundIndex1-1"></div>
+
+    <div class="publishBackgroundIndex2-6"></div>
+    <div class="publishBackgroundIndex2-5"></div>
+    <div class="publishBackgroundIndex2-4"></div>
+    <div class="publishBackgroundIndex2-3"></div>
+    <div class="publishBackgroundIndex2-2"></div>
+    <div class="publishBackgroundIndex2-1"></div>
+  </div>
+
+
+  <div class="publishContentDiv">
+    <div class="publishState" layout="row" layout-align="center center">
+      <div></div>
+      <div><span class="md-title">填写项目详情</span></div>
+      <div></div>
+      <div><span class="md-title">等待审核</span></div>
+      <div></div>
+      <div><span class="md-title">项目发布</span></div>
+      <div></div>
+    </div>
+
+    <div class="publishInformation">
+      <div class="publishInformationItem publishInformationTitle">
+        <div>
+          <span class="md-title">项目名称</span>
+          <md-input-container class="publishInformationItemInside" aria-label="项目名称">
+            <input ng-model="project.name">
+          </md-input-container>
+        </div>
+        <div>
+          <span class="md-title">截止日期</span>
+          <md-datepicker
+            class="publishInformationItemInside"
+            ng-model="deadline"
+            md-placeholder="Enter date"></md-datepicker>
+        </div>
+      </div>
+
+      <div class="publishInformationItem">
+        <span class="md-title">项目关键词</span>
+        <md-chips class="publishInformationItemInside publishInformationItemInside_BSpace"
+                  ng-model="project.keyword"
+                  readonly= false
+                  placeholder="添加关键词"
+                  secondary-placeholder="添加关键词">
+        </md-chips>
+      </div>
+
+      <div class="publishInformationItem publishInformationType">
+        <pan class="md-title">项目类型</pan>
+        <div class="publishInformationItemInside publishInformationItemInside_BSpace publishInformationItemInside_TSpace">
+          <div ng-repeat="type in projectTypes">
+            <md-checkbox ng-model="type.boxValue" aria-label="Checkbox" ng-change="checkProjectType(type)">
+              {{type.name}}
+            </md-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <div class="publishInformationItem">
+        <pan class="md-title">项目介绍</pan>
+        <md-input-container class="publishInformationItemInside" aria-label>
+          <input ng-model="project.introduction">
+        </md-input-container>
+      </div>
+
+      <div class="publishInformationItem">
+        <pan class="md-title">现阶段情况介绍</pan>
+        <md-input-container class="publishInformationItemInside" aria-label>
+          <input ng-model="project.basic">
+        </md-input-container>
+      </div>
+
+      <div class="publishInformationItem publishInformationMemberNum">
+        <pan class="md-title">成员数</pan>
+        <md-input-container class="publishInformationItemInside">
+          <input type="number" step="1" ng-model="project.member_number" aria-labe="成员数">
+        </md-input-container>
+      </div>
+
+      <div class="publishInformationItem">
+        <pan class="md-title">成员要求</pan>
+        <md-input-container class="publishInformationItemInside">
+          <input ng-model="project.member_demand" aria-label="需要成员">
+        </md-input-container>
+      </div>
+    </div>
+
+    <div class="publishNextButton">
+      <md-button class="md-primary publishNextBtn" ng-click="submit()">提交</md-button>
+    </div>
+
+  </div>
+</div>
+
+
+
