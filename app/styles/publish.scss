@@ -265,15 +265,44 @@
 }
 
 .publishNextButton {
-  display: inline-block;
+  display: flex;
   align-self: flex-end;
   margin-top: 5%;
 }
 
-.publishNextButton > button.md-button.md-primary {
+.publishNextButton > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.publishNextButton > div > button.md-button.md-primary {
   background-color: #443d36;
   color: #ffffff;
 }
+.publishNextButton > div > button.md-button[disabled] > span {
+
+  color: #666666;
+}
+.publishNextButton button ~ md-progress-circular {
+  top: -45px;
+  width: 40px !important;
+  height: 10px !important;
+}
+
+.publishNextButton md-progress-circular .md-inner .md-gap {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.publishNextButton md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #ffffff;
+  border-top-color: #ffffff;
+}
+.publishNextButton md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+}
+
 
 .publishInformationType > div {
   display: flex;

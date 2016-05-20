@@ -10,12 +10,20 @@
 angular.module('autoApp')
   .controller('HomeCtrl', function ($scope, $state) {
 
+    $scope.pcMode = [null, null];
+    $scope.joinBtnDisabled = false;
+    $scope.publishBtnDisabled = false;
+
     $scope.publish = function () {
+      $scope.publishBtnDisabled = true;
+      $scope.pcMode[1] =  'indeterminate';
       $state.go( "app.publish");
-    }
+    };
     $scope.join = function () {
+      $scope.joinBtnDisabled = true;
+      $scope.pcMode[0] =  'indeterminate';
       $state.go( "app.join");
-    }
+    };
 
     $scope.news = [{
       type : "校内创新项目",

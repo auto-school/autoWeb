@@ -91,9 +91,8 @@
 
 
 .loginAndSignupInput {
-
   width: 70%;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
 }
 
 .loginAndSignupSubmitBtn {
@@ -110,7 +109,7 @@
 
   text-decoration: none;
   font-size: 12px;
-  color: #444;
+  color: #443d36;
   width: 70%;
   text-align: right;
   padding: 5px;
@@ -195,4 +194,29 @@
   border-width: 0 1500px 1000px 0;
   border-color: transparent #b1ccb7 transparent transparent;
 
+}
+
+.loginAndSignupInnerDivInputPart button ~ md-progress-circular {
+  top: -45px;
+}
+.loginAndSignupInnerDivInputPart .md-button[disabled] {
+  background-color: #eeeeee;
+}
+
+.loginAndSignupInnerDivInputPart .md-button[disabled] > span {
+  color: #ffffff;
+}
+
+.loginAndSignupInnerDivInputPart md-progress-circular .md-inner .md-gap {
+  border-top-color: #443d36;
+  border-bottom-color: #443d36;
+}
+
+.loginAndSignupInnerDivInputPart md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #443d36;
+  border-top-color: #443d36;
+}
+.loginAndSignupInnerDivInputPart md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #443d36;
+  border-top-color: #443d36;
 }

@@ -1,4 +1,4 @@
-<div class="title">
+<div class="homeTitle">
   <!--<div class="titleBackground">-->
 
     <!--<img src="../../images/home_background1.jpg">-->
@@ -8,13 +8,19 @@
     <span class="md-headline">Innovation Project System</span>
     <span class="md-headline">of College of Auto of Tongji University</span>
     <div>
-      <md-button ng-click="join()" class="md-primary">我要加入</md-button>
-      <md-button ng-click="publish()" class="md-primary">我要发布</md-button>
+      <div>
+        <md-button ng-click="join()" class="md-primary" ng-disabled="joinBtnDisabled">我要加入</md-button>
+        <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="40px"></md-progress-circular>
+      </div>
+      <div>
+        <md-button ng-click="publish()" class="md-primary" ng-disabled="publishBtnDisabled">我要发布</md-button>
+        <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="40px"></md-progress-circular>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="newsCenter" layout="column" layout-align="center center">
+<div class="homeNewsCenter" layout="column" layout-align="center center">
   <div class="newsCenterTitle" layout="row" layout-align="center center">
     <span>NEWS</span>
     <div layout="row" layout-align="center center">
@@ -50,7 +56,7 @@
   </div>
 </div>
 
-<div class="projectExhibition" layout="column" layout-align="center center">
+<div class="homeProjectExhibition" layout="column" layout-align="center center">
   <div class="projectExhibitionTitle">在创项目展示</div>
   <div class="projectExhibitionContent" layout="column" layout-align="center center">
     <div ng-repeat="project in projects" class="projectExhibitionCell" layout="row" layout-align="center center">
@@ -92,7 +98,7 @@
   </div>
 </div>
 
-<div class="ads">
+<div class="homeAds">
   <!--<div class="adsBackground"></div>-->
   <div class="adsContent">
     <div class="adsContentLeft" layout="column" layout-align="center center">

@@ -13,5 +13,6 @@
   </div>
 </md-input-container>
 
-<md-button class="loginAndSignupSubmitBtn" ng-click="login()" class="md-primary">登录</md-button>
+<md-button class="loginAndSignupSubmitBtn" ng-click="login()" class="md-primary" ng-disabled="btnDisabled">登录</md-button>
+<md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
 <a class="loginAndSignupTransferBtn" ui-sref="auth.signup">未注册</a>

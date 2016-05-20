@@ -1,4 +1,4 @@
-.title {
+.homeTitle {
   background-image: url("../images/home_background1.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -36,7 +36,7 @@
   align-self: flex-start;
 }
 
-.titleContent div {
+.titleContent > div {
   width: 80%;
   margin: 50px auto;
   display: flex;
@@ -44,17 +44,49 @@
   flex-direction: column;
   align-items: flex-end;
 }
+.titleContent > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homeTitle button ~ md-progress-circular {
+  top: -50px;
+  width: 40px !important;
+  height: 10px !important;
+}
+
+.homeTitle md-progress-circular .md-inner .md-gap {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.homeTitle md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #ffffff;
+  border-top-color: #ffffff;
+}
+.homeTitle md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+}
+
 
 .titleContent button {
-  padding: 6px 40px;
+  padding: 5px 40px;
   background-color: #ff5447;
 }
 
 .titleContent button span{
   font-size: 20px;
 }
+.titleContent .md-button[disabled] {
+  background-color: rgba(58, 50, 49, 0.2);
+}
+.titleContent .md-button[disabled] > span {
+  color: #666666;
+}
 
-.newsCenter {
+.homeNewsCenter {
   height: 1000px;
   font-family: Verdana, Helvetica, "Microsoft YaHei", Arial;
 }
@@ -219,7 +251,7 @@
   color: #696969;
 }
 
-.projectExhibition {
+.homeProjectExhibition {
   width: 75%;
   margin: 0 auto;
   font-family: Verdana, Helvetica, "Microsoft YaHei", Arial;
@@ -419,7 +451,7 @@
 }
 
 
-.ads {
+.homeAds {
   background-image: url("../images/home_background2.png");
   background-repeat: no-repeat;
   background-size: 100%;

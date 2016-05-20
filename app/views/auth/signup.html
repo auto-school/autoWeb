@@ -27,7 +27,8 @@
   </div>
 </md-input-container>
 
-<md-button class="loginAndSignupSubmitBtn" ng-click="signup()" class="md-primary">注册</md-button>
+<md-button class="loginAndSignupSubmitBtn" ng-click="signup()" class="md-primary" ng-disabled="btnDisabled">注册</md-button>
+<md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
 <a class="loginAndSignupTransferBtn" ui-sref="auth.login">已注册</a>
 
 

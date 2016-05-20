@@ -95,7 +95,14 @@
     </div>
 
     <div class="publishNextButton">
-      <md-button class="md-primary publishNextBtn" ng-click="submit()">提交</md-button>
+      <div>
+        <md-button class="md-primary" ng-disabled="cancelBtnDisabled" ng-click="cancel()">取消</md-button>
+        <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="40px"></md-progress-circular>
+      </div>
+      <div>
+        <md-button class="md-primary" ng-disabled="submitBtnDisabled" ng-click="submit()">提交</md-button>
+        <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="40px"></md-progress-circular>
+      </div>
     </div>
 
   </div>
