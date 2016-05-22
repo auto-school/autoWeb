@@ -1,0 +1,39 @@
+<md-dialog aria-label="申请加入项目" class="joinDialog" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="joinToolBarBackground">
+        <div class="joinToolBarBackgroundIndex3"></div>
+        <div class="joinToolBarBackgroundIndex2"></div>
+        <!--<div class="joinToolBarBackgroundIndex1"></div>-->
+      </div>
+      <div class="md-toolbar-tools">
+        <h2>申请加入项目</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+
+        <div>
+          <pan class="md-title">申请身份</pan>
+          <md-radio-group ng-model="applicant.role">
+            <div ng-repeat="type in applicantType">
+              <md-radio-button  value="{{type.index}}" class="md-primary">{{type.name}}</md-radio-button>
+            </div>
+          </md-radio-group>
+        </div>
+        <div>
+          <pan class="md-title">申请原因</pan>
+          <md-input-container>
+            <input ng-model="applicant.reason">
+          </md-input-container>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+      <span flex></span>
+      <md-button ng-click="cancel()">取消申请</md-button>
+      <md-button ng-click="join($event)">申请加入</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

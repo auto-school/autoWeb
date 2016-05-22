@@ -27,12 +27,11 @@ angular.module('autoApp')
 
     this.signup = function (user) {
       $rootScope.user = undefined;
-      console.log(user);
       var url = ApiSrv.BASE_URL + "user";
       var promise = $http.post(url, user);
       promise.success(function (data) {
         $rootScope.user = user;
-        
+
         //TokenService.setToken(data.data.token);
         Locals.setObject('user', $rootScope.user);
         //Locals.set('token', data.data.token);

@@ -1,0 +1,75 @@
+.joinDialog {
+  min-width: 600px;
+}
+.joinDialog md-toolbar:not(.md-menu-toolbar) {
+  background-color: #443d36;
+}
+.joinDialog .md-toolbar-tools {
+  position: relative;
+  z-index: 1;
+}
+.joinDialog md-radio-group {
+  display: flex;
+  justify-content: flex-start;
+}
+.joinDialog md-radio-group > div {
+  display: inline-block;
+  margin: 10px 30px 0 0 ;
+}
+.joinDialog md-input-container {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.joinDialog md-input-container {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.joinDialog .md-button {
+  font-size: 16px;
+  margin: 0 10px 12px 0;
+}
+
+.joinToolBarBackground {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow:hidden;
+}
+
+.joinToolBarBackgroundIndex1 {
+
+  position: absolute;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 200px 100px 0;
+  border-color: transparent #443d36 transparent transparent;
+
+}
+
+.joinToolBarBackgroundIndex2 {
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 300px 150px 0;
+  border-color: transparent #ff453d transparent transparent;
+
+}
+
+.joinToolBarBackgroundIndex3 {
+
+  position: absolute;
+  right: 70px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 300px 150px 0;
+  border-color: transparent #1de6a8 transparent transparent;
+
+}

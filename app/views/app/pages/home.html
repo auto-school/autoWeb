@@ -84,7 +84,7 @@
       <div class="projectExhibitionCellDate" layout="column" layout-align="center center">
         <span>{{project.startTime}}</span>
         <span>{{project.endTime}}</span>
-        <md-button layout="column" layout-align="center center">
+        <md-button layout="column" layout-align="center center" ng-click="showJoinDialog(project)">
           <img src="images/home_projectExhibition_date.png"/>
           <span>立即加入</span>
         </md-button>
