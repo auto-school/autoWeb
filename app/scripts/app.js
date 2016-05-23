@@ -140,9 +140,6 @@ angular
       controller: 'SignupCtrl'
     })
 
-
-
-
     .state('admin', {
       url:"/admin",
       templateUrl:'views/admin/authback.html',
