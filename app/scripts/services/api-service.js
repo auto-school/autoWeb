@@ -52,18 +52,17 @@ angular.module('autoApp')
     };
 
     // 管理员审核不通过项目
-    this.APPROVE_APPLICATION = function (application_id) {
+    this.REJECT_PROJECT = function (project_id) {
       return this.BASE_URL + 'admin/' + 'project/' + project_id + '/rejection';
-
     };
 
     // 项目创建人同意别人的申请
-    this.REJECT_APPLICATION = function (application_id) {
+    this.APPROVE_APPLICATION = function (application_id) {
       return this.APPLICATION + application_id + '/approval';
     };
 
     // 项目创建人拒绝别人的申请
-    this.REJECT_PROJECT = function (project_id) {
+    this.REJECT_APPLICATION = function (application_id) {
       return this.APPLICATION + application_id + '/rejection';
     };
 
