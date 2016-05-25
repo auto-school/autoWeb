@@ -37,6 +37,15 @@ angular.module('autoApp')
 
     this.fetchAllProject = function () {
       return $http.get(ApiSrv.FETCH_PROJECTS);
-    }
+    };
+    
+    this.fetchProjectByOwner = function(username){
+      return $http.get(ApiSrv.FETCH_OWN_PROJECTS(username));
+    };
+    
+    this.fetchProjectByParticipant = function(username){
+      return $http.get(ApiSrv.FETCH_JOIN_PROJECTS(username));
+    };
+    
 
   });

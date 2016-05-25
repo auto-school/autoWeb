@@ -66,10 +66,20 @@ angular.module('autoApp')
       return this.APPLICATION + application_id + '/rejection';
     };
 
-
+    // 根据项目id找到某个项目
     this.FETCH_PROJECT = function (project_id) {
       return this.PROJECT + project_id;
-    }
+    };
 
+    //  找到某个用户创建的所有项目
+    this.FETCH_OWN_PROJECTS = function (username) {
+      return this.USER + username + '/projects';
+    };
+
+    // 找个某个用户参与的所有项目
+    this.FETCH_JOIN_PROJECTS = function(username){
+      return this.USER + username + '/participant/projects';
+    }
+    
 
   });
