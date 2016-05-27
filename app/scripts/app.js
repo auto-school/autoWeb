@@ -195,9 +195,6 @@ angular
       }
     })
 
-
-
-
     .state('admin', {
       url:"/admin",
       templateUrl:'views/admin/authback.html',

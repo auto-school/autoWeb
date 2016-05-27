@@ -18,13 +18,34 @@ angular.module('autoApp')
       var resource = {reason:reason, project:{id:project_id}, role:role};
       return $http.post(ApiSrv.APPLICATION, resource);
     };
-
+    
     this.checkProject = function (project_id) {
-      return $http.post(ApiSrv.CHECK_PROJECT(project_id),"");
+      return $http.post(ApiSrv.CHECK_PROJECT(project_id),'');
+    };
+    
+    this.rejectProject = function (project_id) {
+      return $http.post(ApiSrv.REJECT_PROJECT(project_id), '')
+    };
+    
+    this.approveApplication = function(application_id){
+      return $http.post(ApiSrv.APPROVE_APPLICATION(application_id), '');
+    };
+    
+    this.rejectApplication = function(application_id){
+      return $http.post(ApiSrv.REJECT_APPLICATION(application_id), '');
     };
 
     this.fetchAllProject = function () {
       return $http.get(ApiSrv.FETCH_PROJECTS);
-    }
+    };
+    
+    this.fetchProjectByOwner = function(username){
+      return $http.get(ApiSrv.FETCH_OWN_PROJECTS(username));
+    };
+    
+    this.fetchProjectByParticipant = function(username){
+      return $http.get(ApiSrv.FETCH_JOIN_PROJECTS(username));
+    };
+    
 
   });
