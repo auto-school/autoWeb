@@ -22,7 +22,7 @@ angular.module('autoApp')
     $scope.join = function () {
       $scope.joinBtnDisabled = true;
       $scope.pcMode[0] =  'indeterminate';
-      $state.go( "app.join");
+      $state.go( "app.project.list");
     };
 
     $scope.news = [{

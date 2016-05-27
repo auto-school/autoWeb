@@ -12,8 +12,5 @@ angular.module('autoApp')
 
     $scope.user = $rootScope.user;
     console.log( $scope.user );
-
-    $scope.goToHome = function () {
-      $state.go( "app.home");
-    };
+    
   });

@@ -1,0 +1,67 @@
+<div  class="infoMainView">
+  <div ui-view="background" class="publishBackground"></div>
+
+  <md-content class="md-padding infoContentDiv">
+    <md-tabs class="md-primary" md-selected="data.selectedIndex" md-dynamic-height md-border-bottom>
+      <md-tab id="tab1">
+        <md-tab-label>个人信息</md-tab-label>
+        <md-tab-body>
+
+          <div class="personalInformationList">
+            <div class="personalInformationItem">
+                <span class="titleFont">姓名</span>
+                <input type="text" ng-readonly="isPersonalInfoReadonly" ng-model="personalInfo.name">
+            </div>
+            <div class="personalInformationItem">
+                <span class="titleFont">学号</span>
+                <input type="text" ng-readonly="isPersonalInfoReadonly" ng-model="personalInfo.id">
+            </div>
+            <div class="personalInformationItem">
+              <span class="titleFont">个人说明</span>
+              <textarea ng-readonly="isPersonalInfoReadonly" ng-model="personalInfo.intro"></textarea>
+            </div>
+            <div class="personalInformationItem">
+              <span class="titleFont">活动经历</span>
+              <textarea ng-readonly="isPersonalInfoReadonly" ng-model="personalInfo.experience"></textarea>
+            </div>
+            <div class="personalInformationItem">
+              <span class="titleFont">获得奖项</span>
+              <textarea ng-readonly="isPersonalInfoReadonly" ng-model="personalInfo.awards"></textarea>
+            </div>
+
+          </div>
+          <div class="personalInformationBtn">
+            <div>
+              <md-button class="md-primary" ng-disabled="personalInfoBtnDisabled" ng-click="personalInfoBtnClicked()" ng-bind="btnName"></md-button>
+              <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            </div>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2">
+        <md-tab-label>已发布项目</md-tab-label>
+        <md-tab-body>
+          <md-list>
+            <md-list-item class="md-3-line" ng-repeat="project in publishedPro">
+              <div class="md-list-item-text">
+                <h3>{{ project.name }}</h3>
+                <h4>{{ project.deadline }}</h4>
+                <p>{{ project.keyWords.join(' / ') }}</p>
+              </div>
+              <md-button class="md-secondary">Respond</md-button>
+              <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+          </md-list>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab3">
+        <md-tab-label>已加入项目</md-tab-label>
+        <md-tab-body>
+          View for Item #3 <br/>
+          data.selectedIndex = 2;
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+
+</div>

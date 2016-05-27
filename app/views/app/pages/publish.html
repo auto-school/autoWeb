@@ -28,19 +28,17 @@
     </div>
 
     <div class="publishInformation">
-      <div class="publishInformationItem publishInformationTitle">
+      <div class="publishInformationItem publishInformation2Col">
         <div>
           <span class="md-title">项目名称</span>
-          <md-input-container class="publishInformationItemInside" aria-label="项目名称">
-            <input ng-model="project.name">
+          <md-input-container class="publishInformationItemInside">
+            <input ng-model="project.name" aria-label="项目名称">
           </md-input-container>
         </div>
         <div>
-          <span class="md-title">截止日期</span>
-          <md-datepicker
-            class="publishInformationItemInside"
-            ng-model="deadline"
-            md-placeholder="Enter date"></md-datepicker>
+          <span class="md-title">是否为累进项目</span>
+          <md-checkbox  class="publishInformationItemInside  publishInformationItemInside_BSpace publishInformationItemInside_TSpace"
+                        ng-model="type.isGraduatedPro">是累进项目</md-checkbox>
         </div>
       </div>
 
@@ -55,7 +53,7 @@
       </div>
 
       <div class="publishInformationItem publishInformationType">
-        <pan class="md-title">项目类型</pan>
+        <span class="md-title">项目类型</span>
         <div class="publishInformationItemInside publishInformationItemInside_BSpace publishInformationItemInside_TSpace">
           <div ng-repeat="type in projectTypes">
             <md-checkbox ng-model="type.boxValue" aria-label="Checkbox" ng-change="checkProjectType(type)">
@@ -66,30 +64,40 @@
       </div>
 
       <div class="publishInformationItem">
-        <pan class="md-title">项目介绍</pan>
-        <md-input-container class="publishInformationItemInside" aria-label>
-          <input ng-model="project.introduction">
+        <span class="md-title">项目介绍</span>
+        <md-input-container class="publishInformationItemInside">
+          <input ng-model="project.introduction" aria-label="项目介绍">
         </md-input-container>
       </div>
 
       <div class="publishInformationItem">
-        <pan class="md-title">现阶段情况介绍</pan>
-        <md-input-container class="publishInformationItemInside" aria-label>
-          <input ng-model="project.basic">
+        <span class="md-title">现阶段情况介绍</span>
+        <md-input-container class="publishInformationItemInside">
+          <input ng-model="project.basic" aria-label="现阶段情况介绍">
         </md-input-container>
       </div>
 
-      <div class="publishInformationItem publishInformationMemberNum">
-        <pan class="md-title">成员数</pan>
-        <md-input-container class="publishInformationItemInside">
-          <input type="number" step="1" ng-model="project.member_number" aria-labe="成员数">
-        </md-input-container>
+      <div class="publishInformationItem publishInformation2Col">
+        <div class="publishInformationItem publishInformationMemberNum">
+          <span class="md-title">成员数</span>
+          <md-input-container class="publishInformationItemInside">
+            <input type="number" step="1" ng-model="project.member_number" aria-label="成员数">
+          </md-input-container>
+        </div>
+        <div>
+          <span class="md-title">截止日期</span>
+          <md-datepicker
+            class="publishInformationItemInside"
+            ng-model="deadline"
+            md-placeholder="Enter date"></md-datepicker>
+        </div>
       </div>
+
 
       <div class="publishInformationItem">
-        <pan class="md-title">成员要求</pan>
+        <span class="md-title">成员要求</span>
         <md-input-container class="publishInformationItemInside">
-          <input ng-model="project.member_demand" aria-label="需要成员">
+          <input ng-model="project.member_demand" aria-label="需要成员" />
         </md-input-container>
       </div>
     </div>

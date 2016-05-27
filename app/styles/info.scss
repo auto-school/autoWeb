@@ -1,0 +1,128 @@
+.infoMainView {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 650px;
+}
+
+.titleFont {
+  font-size: 16px;
+}
+.infoContentDiv {
+  position: relative;
+  background: #ffffff;
+  width: 85%;
+  padding: 0;
+  margin: 30px 0;
+  border-radius: 10px;
+  display: flex;
+  min-height: 400px;
+}
+
+.infoContentDiv > md-tabs {
+  width: 100%;
+}
+.infoContentDiv md-tabs-canvas {
+  background-color: #443d36;
+}
+
+.infoContentDiv md-tabs md-tab-item > span {
+  color: #ffffff;
+}
+
+.infoContentDiv md-tab-content:first-child > div {
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.personalInformationList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.personalInformationBtn {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.personalInformationItem {
+  display: flex;
+}
+
+.personalInformationItem span {
+  width: 80px;
+  margin-right: 20px;
+  position: relative;
+  top: 6px;
+  text-align: right;
+}
+
+.personalInformationItem input {
+  flex: 1;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-right: 40%;
+}
+
+.personalInformationItem textarea {
+  flex: 1;
+  outline: none;
+  resize: none;
+  height: 80px;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.personalInformationItem {
+  margin-bottom: 20px;
+}
+
+.personalInformationBtn {
+  display: flex;
+  align-self: flex-end;
+}
+
+.personalInformationBtn > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.personalInformationBtn > div > button.md-button.md-primary {
+  background-color: #443d36;
+  color: #ffffff;
+}
+.personalInformationBtn > div > button.md-button[disabled] > span {
+
+  color: #666666;
+}
+.personalInformationBtn button ~ md-progress-circular {
+  top: -45px;
+  width: 40px !important;
+  height: 10px !important;
+}
+
+.personalInformationBtn md-progress-circular .md-inner .md-gap {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.personalInformationBtn md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #ffffff;
+  border-top-color: #ffffff;
+}
+.personalInformationBtn md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+}
+
+
+.infoContentDiv md-list {
+  padding: 0;
+}

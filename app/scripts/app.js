@@ -85,7 +85,7 @@ angular
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/auth/login");
+  $urlRouterProvider.otherwise("app/info/personalInfo");
   //
   // Now set up the states
   $stateProvider
@@ -99,11 +99,52 @@ angular
       templateUrl: 'views/app/pages/home.html',
       controller: 'HomeCtrl'
     })
-
     .state('app.publish', {
-      url: "/publish",
+      url: '/publish',
       templateUrl: 'views/app/pages/publish.html',
       controller: 'PublishCtrl'
+    })
+
+    .state('app.info', {
+      url: "/info",
+      templateUrl: 'views/app/pages/info/info.html',
+      controller: 'InfoCtrl'
+    })
+    .state('app.info.personalInfo', {
+      url: '/personalInfo',
+      views: {
+        'background': {
+          templateUrl: 'views/background/backgroundb.html',
+        },
+        'content': {
+          templateUrl: 'views/app/pages/info/personalinfo.html',
+          controller: 'InfoCtrl'
+        }
+      }
+    })
+    .state('app.info.publishedProjects', {
+      url: '/publishedProjects',
+      views: {
+        'background': {
+          templateUrl: 'views/background/backgroundb.html',
+        },
+        'content': {
+          templateUrl: 'views/app/pages/info/publishedProjects.html',
+          controller: 'InfoCtrl'
+        }
+      }
+    })
+    .state('app.info.joinedProjects', {
+      url: '/joinedProjects',
+      views: {
+        'background': {
+          templateUrl: 'views/background/backgroundb.html',
+        },
+        'content': {
+          templateUrl: 'views/app/pages/info/joinedProjects.html',
+          controller: 'InfoCtrl'
+        }
+      }
     })
 
     .state('app.project',{
@@ -131,13 +172,27 @@ angular
     })
     .state('auth.login', {
       url: "/login",
-      templateUrl: 'views/auth/login.html',
-      controller: 'LoginCtrl'
+      views: {
+        'background': {
+          templateUrl: 'views/background/backgrounda.html',
+        },
+        'content': {
+          templateUrl: 'views/auth/login.html',
+          controller: 'LoginCtrl'
+        }
+      }
     })
     .state('auth.signup', {
       url: "/signup",
-      templateUrl: 'views/auth/signup.html',
-      controller: 'SignupCtrl'
+      views: {
+        'background': {
+          templateUrl: 'views/background/backgrounda.html',
+        },
+        'content': {
+          templateUrl: 'views/auth/signup.html',
+          controller: 'SignupCtrl'
+        }
+      }
     })
 
 
