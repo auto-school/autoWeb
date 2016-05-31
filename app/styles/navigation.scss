@@ -7,3 +7,12 @@
   color: #222222;
 
 }
+.body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.body > div:nth-child(2) {
+  flex: 1;
+}

@@ -132,60 +132,7 @@ angular.module('autoApp')
       { val: ""},
       { val: "同济大学汽车学院"},
       { val: "同济大学汽车学院"},
-      { val: "同济大学汽车学院"},
+      { val: "同济大学汽车学院"}
     ];
 
-
-    $scope.showJoinDialog = function (project) {
-      console.log(project);
-      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-      $mdDialog.show({
-        controller: JoinCtrl,
-        controllerAs: 'ctrl',
-        templateUrl: 'views/app/pages/join.html',
-        parent: angular.element(document.body),
-        locals: {
-          project: {
-            id: project.id,
-            name: project.title
-          }
-        },
-        clickOutsideToClose:true,
-        fullscreen: useFullScreen
-      });
-      $scope.$watch(function() {
-        return $mdMedia('xs') || $mdMedia('sm');
-      }, function(wantsFullScreen) {
-        $scope.customFullscreen = (wantsFullScreen === true);
-      });
-    };
   });
-
-
-function JoinCtrl($scope, $mdDialog, project) {
-  $scope.applicant = {
-    reason: "",
-    role: -1,
-    project: project
-  };
-  $scope.cancel = function() {
-    $mdDialog.cancel();
-  };
-
-  $scope.join = function () {
-    console.log($scope.applicant);
-    $mdDialog.hide();
-  };
-
-  // 身份类型
-  $scope.applicantType = [{
-    name:'导师',
-    index: 0
-  }, {
-    name:'校外导师',
-    index: 1
-  }, {
-    name:'成员',
-    index: 2
-  }];
-}

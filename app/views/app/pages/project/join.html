@@ -12,7 +12,11 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
+
       <div class="md-dialog-content">
+        <div class="errorReminder">
+          <span ng-repeat="error in errors">{{error}}</span>
+        </div>
 
         <div>
           <pan class="md-title">申请身份</pan>
@@ -32,8 +36,14 @@
     </md-dialog-content>
     <md-dialog-actions>
       <span flex></span>
-      <md-button ng-click="cancel()">取消申请</md-button>
-      <md-button ng-click="join($event)">申请加入</md-button>
+      <div>
+        <md-button ng-disabled="cancelBtnDisabled" ng-click="cancel()">取消申请</md-button>
+        <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="30px"></md-progress-circular>
+      </div>
+      <div>
+        <md-button ng-disabled="submitBtnDisabled" ng-click="join()">申请加入</md-button>
+        <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="30px"></md-progress-circular>
+      </div>
     </md-dialog-actions>
   </form>
 </md-dialog>

@@ -75,7 +75,6 @@ angular.module('autoApp')
       }
     };
     $scope.cancel = function () {
-      console.log("pressed");
       var confirm = $mdDialog.confirm()
         .title('确认退出?')
         .textContent('所有信息将不被保存')

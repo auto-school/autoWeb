@@ -26,9 +26,9 @@
   width: 100%;
   margin: 0;
 }
-.joinDialog .md-button {
-  font-size: 16px;
-  margin: 0 10px 12px 0;
+
+md-dialog .md-dialog-content {
+  padding-bottom: 0;
 }
 
 .joinToolBarBackground {
@@ -72,4 +72,58 @@
   border-width: 0 300px 150px 0;
   border-color: transparent #1de6a8 transparent transparent;
 
+}
+
+.joinDialog md-dialog-actions {
+  display: flex;
+  align-self: flex-end;
+}
+
+.joinDialog md-dialog-actions > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px 12px 0;
+}
+
+.joinDialog .md-button {
+  font-size: 16px;
+  margin: 0;
+}
+
+.joinDialog .md-button[disabled] {
+  background-color: #eeeeee;
+}
+.joinDialog .md-button[disabled] > span {
+  color: rgba(0,0,0,0.40);
+}
+
+.joinDialog button ~ md-progress-circular {
+  top: -33px;
+  width: 30px !important;
+  height: 10px !important;
+}
+
+.joinDialog md-progress-circular .md-inner .md-gap {
+  border-top-color: #000000;
+  border-bottom-color: #000000;
+}
+
+.joinDialog md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #000000;
+  border-top-color: #000000;
+}
+.joinDialog md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #000000;
+  border-top-color: #000000;
+}
+
+.joinDialog .errorReminder {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.joinDialog .errorReminder span {
+  color: #ff453d;
 }

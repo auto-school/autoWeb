@@ -13,6 +13,7 @@ angular.module('autoApp')
       ProjectSrv.fetchAllProject()
         .success(function (data) {
           $scope.projects = data.data;
+          console.log($scope.projects);
         })
         .error(function(){
           console.log('error');

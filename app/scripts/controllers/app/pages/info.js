@@ -8,34 +8,29 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('InfoCtrl', function ($scope) {
+  .controller('InfoCtrl', function ($scope, $rootScope, $timeout, ProjectSrv) {
 
+    $scope.user = $rootScope.user;
 
     // TAB1
-    $scope.personalInfo = {
-      'name': '姓名',
-      'id': '学号',
-      'intro': '个人说明',
-      'experience': '活动经历',
-      'awards': '获得奖项'
-    };
     $scope.isPersonalInfoReadonly = true;
     $scope.pcMode = false;
     $scope.personalInfoBtnDisabled = false;
     $scope.btnName = '编辑';
 
     $scope.personalInfoBtnClicked = function () {
+
       $scope.isPersonalInfoReadonly = !$scope.isPersonalInfoReadonly;
       if ($scope.isPersonalInfoReadonly) {
         $scope.personalInfoBtnDisabled = true;
         $scope.pcMode = 'indeterminate';
 
         // 假装成功
-        setTimeout(function () {
+        $timeout(function() {
           $scope.personalInfoBtnDisabled = false;
           $scope.pcMode = null;
           $scope.btnName = '编辑';
-          }, 1000);
+        }, 1000);
 
       } else {
         $scope.btnName = '更新';
@@ -43,37 +38,18 @@ angular.module('autoApp')
     };
 
     // TAB2
-    $scope.publishedPro = [{
-      'name': 'project name',
-      'intro': '简要介绍',
-      'deadline': '2014-05-31',
-      'keyWords': ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    },{
-      'name': 'project name',
-      'intro': '简要介绍',
-      'deadline': '2014-05-31',
-      'keyWords': ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    },{
-      'name': 'project name',
-      'intro': '简要介绍',
-      'deadline': '2014-05-31',
-      'keyWords': ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    },{
-      'name': 'project name',
-      'intro': '简要介绍',
-      'deadline': '2014-05-31',
-      'keyWords': ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    },{
-      'name': 'project name',
-      'intro': '简要介绍',
-      'deadline': '2014-05-31',
-      'keyWords': ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    },{
-      'name': 'project name',
-      'intro': '简要介绍',
-      'deadline': '2014-05-31',
-      'keyWords': ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    }];
+    console.log($scope.user.username);
+    ProjectSrv.fetchProjectByOwner($scope.user.username)
+      .success(function (data) {
+        $scope.projects = data;
+        $scope.projects.forEach(function (pro) {
+          var deadline = new Date(pro.deadline);
+          var Y = deadline.getFullYear() + '-';
+          var M = (deadline.getMonth()+1 < 10 ? '0'+(deadline.getMonth()+1) : deadline.getMonth()+1) + '-';
+          var D = deadline.getDate();
+          pro.deadline = Y + M + D;
+        })
+      });
 
 
     // TAB3
