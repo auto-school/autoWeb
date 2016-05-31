@@ -122,6 +122,56 @@
 }
 
 
+#tab2 md-tab-body {
+  display: flex;
+  flex-direction: column;
+
+}
+#tab2 md-tab-body md-list {
+  flex: 1;
+
+}
+
 .infoContentDiv md-list {
   padding: 0;
 }
+
+.paginationBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.paginationBtn > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.paginationBtn > div > button.md-button.md-primary {
+  background-color: #443d36;
+  color: #ffffff;
+}
+.paginationBtn > div > button.md-button[disabled] > span {
+
+  color: #666666;
+}
+.paginationBtn button ~ md-progress-circular {
+  top: -45px;
+  width: 40px !important;
+  height: 10px !important;
+}
+
+.paginationBtn md-progress-circular .md-inner .md-gap {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.paginationBtn md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #ffffff;
+  border-top-color: #ffffff;
+}
+.paginationBtn md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+}
+

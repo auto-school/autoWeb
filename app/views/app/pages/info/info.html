@@ -42,7 +42,7 @@
         <md-tab-label>已发布项目</md-tab-label>
         <md-tab-body>
           <md-list>
-            <md-list-item class="md-3-line" ng-repeat="project in projects">
+            <md-list-item class="md-3-line" ng-repeat="project in publishedProjects">
               <div class="md-list-item-text">
                 <h3>{{ project.name }}</h3>
                 <h4>{{ project.deadline }}</h4>
@@ -54,11 +54,11 @@
           </md-list>
           <div class="paginationBtn">
             <div>
-              <md-button class="md-primary" ng-disabled="" ng-click="">前一页</md-button>
+              <md-button class="md-primary" ng-disabled="publishedProPreviousBtnDisabled" ng-click="">前一页</md-button>
               <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
             </div>
             <div>
-              <md-button class="md-primary" ng-disabled="" ng-click="">后一页</md-button>
+              <md-button class="md-primary" ng-disabled="publishedProNextBtnDisabled" ng-click="">后一页</md-button>
               <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
             </div>
           </div>
@@ -67,8 +67,27 @@
       <md-tab id="tab3">
         <md-tab-label>已加入项目</md-tab-label>
         <md-tab-body>
-          View for Item #3 <br/>
-          data.selectedIndex = 2;
+          <md-list>
+            <md-list-item class="md-3-line" ng-repeat="project in joinedProjects">
+              <div class="md-list-item-text">
+                <h3>{{ project.name }}</h3>
+                <h4>{{ project.deadline }}</h4>
+                <p>{{ project.keyword.join(' / ') }}</p>
+              </div>
+              <md-button class="md-secondary">Respond</md-button>
+              <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+          </md-list>
+          <div class="paginationBtn">
+            <div>
+              <md-button class="md-primary" ng-disabled="joinedProPreviousBtnDisabled" ng-click="">前一页</md-button>
+              <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            </div>
+            <div>
+              <md-button class="md-primary" ng-disabled="joinedProNextBtnDisabled" ng-click="">后一页</md-button>
+              <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            </div>
+          </div>
         </md-tab-body>
       </md-tab>
     </md-tabs>

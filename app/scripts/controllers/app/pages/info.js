@@ -38,21 +38,39 @@ angular.module('autoApp')
     };
 
     // TAB2
-    console.log($scope.user.username);
+    $scope.publishedProPreviousBtnDisabled = true;
+    $scope.publishedProNextBtnDisabled = true;
+
     ProjectSrv.fetchProjectByOwner($scope.user.username)
       .success(function (data) {
-        $scope.projects = data;
-        $scope.projects.forEach(function (pro) {
+        $scope.publishedProjects = data;
+        $scope.publishedProjects.forEach(function (pro) {
           var deadline = new Date(pro.deadline);
           var Y = deadline.getFullYear() + '-';
           var M = (deadline.getMonth()+1 < 10 ? '0'+(deadline.getMonth()+1) : deadline.getMonth()+1) + '-';
           var D = deadline.getDate();
           pro.deadline = Y + M + D;
-        })
+        });
       });
 
 
     // TAB3
+    $scope.joinedProPreviousBtnDisabled = true;
+    $scope.joinedProNextBtnDisabled = true;
+    
+    ProjectSrv.fetchProjectByParticipant($scope.user.username)
+      .success(function (data) {
+        console.log(data.data);
+        $scope.joinedProjects = data.data;
+        $scope.joinedProjects.forEach(function (pro) {
+          var deadline = new Date(pro.deadline);
+          var Y = deadline.getFullYear() + '-';
+          var M = (deadline.getMonth()+1 < 10 ? '0'+(deadline.getMonth()+1) : deadline.getMonth()+1) + '-';
+          var D = deadline.getDate();
+          pro.deadline = Y + M + D;
+        });
+        console.log($scope.joinedProjects);
+      });
 
 
   });
