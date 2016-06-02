@@ -14,7 +14,7 @@ angular.module('autoApp')
     //this.BASE_URL = 'http://localhost:5000/';
 
     // 服务地址
-    this.BASE_URL = 'http://tztztztztz.org:5000/';
+    this.BASE_URL = 'http://tztztztztz.org:8181/';
 
     // 登陆, 拿到token
     this.LOGIN = this.BASE_URL + 'token';
@@ -80,6 +80,6 @@ angular.module('autoApp')
     this.FETCH_JOIN_PROJECTS = function(username){
       return this.USER + username + '/participant/projects';
     }
-    
+
 
   });
