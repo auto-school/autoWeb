@@ -8,7 +8,7 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('PublishCtrl', function ($scope, $state, $mdDialog, UserSrv) {
+  .controller('PublishCtrl', function ($scope, $state, $mdDialog, ProjectSrv) {
 
     $scope.project = {
       name : "",
@@ -18,7 +18,7 @@ angular.module('autoApp')
       introduction : "",
       basic : "",
       member_number : null,
-      deadline : "",
+      deadline : null,
       member_demand : "",
       types : [],
       isGradualPro: false
@@ -52,10 +52,29 @@ angular.module('autoApp')
       $scope.submitBtnDisabled = true;
       $scope.pcMode[1] =  'indeterminate';
       $scope.validate();
-      if ($scope.errors.count == 0 ) {
-        $scope.project.deadline = ($scope.deadline.getTime() / 1000).toFixed(0);
+      if ($scope.errors.length == 0 ) {
+        $scope.project.deadline = parseFloat(($scope.deadline.getTime() / 1000).toFixed(0));
         console.log($scope.project);
-        // post
+        ProjectSrv.publishProject($scope.project)
+          .success(function (data) {
+            $scope.submitBtnDisabled = false;
+            $scope.pcMode[1] = null;
+            console.log(data);
+            $state.go('app.project.list');
+          })
+          .error(function (error) {
+            console.log(error);
+            $scope.submitBtnDisabled = false;
+            $scope.pcMode[1] = null;
+            $mdDialog.show(
+              $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title("发布失败")
+                .content("请重试")
+                .ariaLabel("发布失败")
+                .ok('知道了')
+            );
+          });
       } else {
         var alert = "";
         $scope.errors.forEach(function (str) {

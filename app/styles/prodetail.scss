@@ -1,0 +1,21 @@
+md-dialog md-dialog-content > .prodetailDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.prodetailItem1line,
+.prodetailItem2line{
+  margin: 15px 20px 0 20px;
+}
+
+.prodetailItem2line{
+  display: flex;
+  flex-direction: column;
+}
+
+.prodetailItem1line > span:first-child {
+  margin-right: 10px;
+  width: 200px;
+}

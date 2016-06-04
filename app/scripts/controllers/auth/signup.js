@@ -23,7 +23,6 @@ angular.module('autoApp')
       if ($scope.errors.count == 0 ) {
         UserSrv.signup($scope.user)
           .success(function (data, status, headers, config) {
-            console.log('login succuss!');
             $scope.pcMode = null;
             $scope.btnDisabled = false;
             $state.go('app.home');

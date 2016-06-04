@@ -10,12 +10,16 @@
 .titleFont {
   font-size: 16px;
 }
+.infoContentOutsideDiv {
+  width: 100%;
+}
+
 .infoContentDiv {
   position: relative;
   background: #ffffff;
   width: 85%;
   padding: 0;
-  margin: 30px 0;
+  margin: 30px auto;
   border-radius: 10px;
   display: flex;
 }

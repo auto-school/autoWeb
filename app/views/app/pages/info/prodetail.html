@@ -1,0 +1,75 @@
+<md-dialog aria-label="项目详情" class="joinDialog" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="joinToolBarBackground">
+        <div class="joinToolBarBackgroundIndex3"></div>
+        <div class="joinToolBarBackgroundIndex2"></div>
+      </div>
+      <div class="md-toolbar-tools">
+        <h2>项目详情</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+
+      <div class="prodetailDiv">
+        <div class="prodetailItem1line">
+          <span class="md-title">项目名称</span>
+          <span ng-bind="project.name"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">是否为累进项目</span>
+          <span ng-bind="project.isGradualPro == true ? '是': '否'"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">项目关键词</span>
+          <span ng-bind="project.keyword.join(' / ')"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">项目类型</span>
+          <span ng-bind="project.types.join(' / ')"></span>
+        </div>
+
+        <div class="prodetailItem2line">
+          <span class="md-title">项目介绍</span>
+          <span ng-bind="project.introduction"></span>
+        </div>
+
+        <div class="prodetailItem2line">
+          <span class="md-title">现阶段情况介绍</span>
+          <span ng-bind="project.basic"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">成员数</span>
+          <span ng-bind="project.member_number"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">截止日期</span>
+          <span ng-bind="project.deadline"></span>
+        </div>
+
+        <div class="prodetailItem2line">
+          <span class="md-title">成员要求</span>
+          <span ng-bind="project.member_demand"></span>
+        </div>
+      </div>
+
+    </md-dialog-content>
+    <md-dialog-actions>
+      <span flex></span>
+      <div>
+        <md-button ng-disabled="objectBtnDisabled" ng-click="object()">审核否决</md-button>
+        <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="30px"></md-progress-circular>
+      </div>
+      <div>
+        <md-button ng-disabled="checkBtnDisabled" ng-click="check()">审核通过</md-button>
+        <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="30px"></md-progress-circular>
+      </div>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

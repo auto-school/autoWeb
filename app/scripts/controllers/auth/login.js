@@ -8,7 +8,7 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast) {
+  .controller('LoginCtrl', function ($scope, $state, UserSrv, $mdToast, NoticeService) {
     $scope.user = {};
     $scope.pcMode = null;
     $scope.btnDisabled = false;
@@ -26,23 +26,12 @@ angular.module('autoApp')
           $state.go('app.home');
         })
         .error(function(data, status, headers, config) {
-          $scope.notify('error');
+          NoticeService.notify('error');
           // called asynchronously if an error occurs
           // or server returns response with an error status.
           $scope.pcMode = null;
           $scope.btnDisabled = false;
         });
     };
-
-
-    $scope.notify = function (text) {
-      $mdToast.show(
-        $mdToast.simple()
-          .textContent(text)
-          .position('top right')
-          .hideDelay(3000)
-      );
-    };
-
 
   });

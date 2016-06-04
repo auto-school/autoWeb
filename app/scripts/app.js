@@ -85,7 +85,7 @@ angular
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("app/info/personalInfo");
+  $urlRouterProvider.otherwise("auth/login");
   //
   // Now set up the states
   $stateProvider
@@ -107,42 +107,29 @@ angular
 
     .state('app.info', {
       url: "/info",
-      templateUrl: 'views/app/pages/info/info.html',
-      controller: 'InfoCtrl'
+      templateUrl: 'views/app/pages/info/info.html'
     })
-    .state('app.info.personalInfo', {
-      url: '/personalInfo',
+    .state('app.info.user', {
+      url: '/user',
       views: {
         'background': {
-          templateUrl: 'views/background/backgroundb.html',
+          templateUrl: 'views/background/backgroundb.html'
         },
         'content': {
-          templateUrl: 'views/app/pages/info/personalinfo.html',
+          templateUrl: 'views/app/pages/info/user.html',
           controller: 'InfoCtrl'
         }
       }
     })
-    .state('app.info.publishedProjects', {
-      url: '/publishedProjects',
+    .state('app.info.admin', {
+      url: '/admin',
       views: {
         'background': {
-          templateUrl: 'views/background/backgroundb.html',
+          templateUrl: 'views/background/backgroundb.html'
         },
         'content': {
-          templateUrl: 'views/app/pages/info/publishedProjects.html',
-          controller: 'InfoCtrl'
-        }
-      }
-    })
-    .state('app.info.joinedProjects', {
-      url: '/joinedProjects',
-      views: {
-        'background': {
-          templateUrl: 'views/background/backgroundb.html',
-        },
-        'content': {
-          templateUrl: 'views/app/pages/info/joinedProjects.html',
-          controller: 'InfoCtrl'
+          templateUrl: 'views/app/pages/info/admin.html',
+          controller: 'AdminInfoCtrl'
         }
       }
     })
