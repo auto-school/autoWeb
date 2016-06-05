@@ -26,7 +26,7 @@ angular.module('autoApp')
     this.FETCH_PROJECTS = this.BASE_URL + 'projects';
 
     // 申请资源
-    this.APPLICATION = this.BASE_URL + 'application/';
+    this.APPLICATION = this.BASE_URL + 'application';
 
     //项目资源
     this.PROJECT = this.BASE_URL + 'project/';
@@ -58,12 +58,12 @@ angular.module('autoApp')
 
     // 项目创建人同意别人的申请
     this.APPROVE_APPLICATION = function (application_id) {
-      return this.APPLICATION + application_id + '/approval';
+      return this.APPLICATION + '/' + application_id + '/approval';
     };
 
     // 项目创建人拒绝别人的申请
     this.REJECT_APPLICATION = function (application_id) {
-      return this.APPLICATION + application_id + '/rejection';
+      return this.APPLICATION + '/' + application_id + '/rejection';
     };
 
     // 根据项目id找到某个项目
