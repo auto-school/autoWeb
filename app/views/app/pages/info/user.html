@@ -30,7 +30,7 @@
         <div class="personalInformationBtn">
           <div>
             <md-button class="md-primary" ng-disabled="personalInfoBtnDisabled" ng-click="personalInfoBtnClicked()" ng-bind="btnName"></md-button>
-            <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="40px"></md-progress-circular>
           </div>
         </div>
       </md-tab-body>
@@ -52,11 +52,11 @@
         <div class="paginationBtn">
           <div>
             <md-button class="md-primary" ng-disabled="publishedProPreviousBtnDisabled" ng-click="">前一页</md-button>
-            <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="40px"></md-progress-circular>
           </div>
           <div>
             <md-button class="md-primary" ng-disabled="publishedProNextBtnDisabled" ng-click="">后一页</md-button>
-            <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="40px"></md-progress-circular>
           </div>
         </div>
       </md-tab-body>
@@ -78,14 +78,15 @@
         <div class="paginationBtn">
           <div>
             <md-button class="md-primary" ng-disabled="joinedProPreviousBtnDisabled" ng-click="">前一页</md-button>
-            <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            <md-progress-circular md-mode="{{pcMode[2]}}" md-diameter="40px"></md-progress-circular>
           </div>
           <div>
             <md-button class="md-primary" ng-disabled="joinedProNextBtnDisabled" ng-click="">后一页</md-button>
-            <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+            <md-progress-circular md-mode="{{pcMode[2]}}" md-diameter="40px"></md-progress-circular>
           </div>
         </div>
       </md-tab-body>
     </md-tab>
+
   </md-tabs>
 </md-content>

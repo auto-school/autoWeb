@@ -1,3 +1,5 @@
+
+// shown in dialog
 md-dialog md-dialog-content > .prodetailDiv {
   display: flex;
   flex-direction: column;
@@ -12,10 +14,105 @@ md-dialog md-dialog-content > .prodetailDiv {
 
 .prodetailItem2line{
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
 .prodetailItem1line > span:first-child {
   margin-right: 10px;
   width: 200px;
+}
+
+// shown in pages
+
+.prodetailTitle {
+  width: 100%;
+  margin-bottom: 5%;
+}
+.prodetailPageDiv {
+  position: relative;
+  width: 70%;
+  padding: 50px 80px;
+  margin: 50px auto;
+
+  border-radius: 10px;
+  background: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+
+}
+
+.prodetailInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.prodetailItem2col {
+  width: 100%;
+  display: flex;
+}
+
+.prodetailInformation .prodetailItem1line,
+.prodetailInformation .prodetailItem2line{
+  margin: 15px 0 0 0;
+}
+
+.prodetailItem2col .prodetailItem1line {
+  flex: 1;
+}
+
+.prodetailInformation .prodetailItem2line span:last-child {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  margin-top: 5px;
+  padding-bottom: 2px;
+}
+
+.prodetailBtnDiv {
+  align-self: flex-end;
+}
+
+.prodetailBtnDiv > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prodetailBtnDiv > button.md-button.md-primary {
+  padding: 0px 20px;
+  background-color: #443d36;
+  color: #ffffff;
+}
+
+.prodetailBtnDiv > button.md-button[disabled] > span {
+
+  color: #666666;
+}
+.prodetailBtnDiv button ~ md-progress-circular {
+  top: -45px;
+  width: 40px !important;
+  height: 10px !important;
+}
+
+.prodetailBtnDiv md-progress-circular .md-inner .md-gap {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.prodetailBtnDiv md-progress-circular .md-inner .md-left .md-half-circle {
+  border-left-color: #ffffff;
+  border-top-color: #ffffff;
+}
+.prodetailBtnDiv md-progress-circular .md-inner .md-right .md-half-circle {
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
 }

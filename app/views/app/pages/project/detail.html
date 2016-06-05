@@ -1,10 +1,83 @@
-<md-content>
-  <h2>{{roleInProject != '' ? '您为项目的' + roleInProject : ''}}</h2>
-  <h2>项目名称</h2>
-  <span>{{project.name}}</span>
-  <h2>负责人</h2>
-  <span>{{project.creator.name}}</span>
-  <h2>介绍</h2>
-  <span>{{project.introduction}}</span>
-  <md-button class="md-primary" ng-click="showJoinDialog(project)">{{btnTitle}}</md-button>
-</md-content>
+<div  class="infoMainView">
+  <div class="publishBackground">
+    <div class="publishBackgroundIndex1-6"></div>
+    <div class="publishBackgroundIndex1-5"></div>
+    <div class="publishBackgroundIndex1-4"></div>
+    <div class="publishBackgroundIndex1-3"></div>
+    <div class="publishBackgroundIndex1-2"></div>
+    <div class="publishBackgroundIndex1-1"></div>
+
+    <div class="publishBackgroundIndex2-6"></div>
+    <div class="publishBackgroundIndex2-5"></div>
+    <div class="publishBackgroundIndex2-4"></div>
+    <div class="publishBackgroundIndex2-3"></div>
+    <div class="publishBackgroundIndex2-2"></div>
+    <div class="publishBackgroundIndex2-1"></div>
+  </div>
+
+  <div class="prodetailPageDiv">
+    <div class="prodetailTitle" layout="column" layout-align="center center">
+      <span ng-bind="project.name" class="md-display-1"></span>
+      <span ng-bind="roleInProject != '' ? '您为项目的' + roleInProject : ''" class="md-title"></span>
+    </div>
+
+    <div class="prodetailInformation">
+
+      <div class="prodetailItem2col">
+        <div class="prodetailItem1line">
+          <span class="md-title">项目关键词</span>
+          <span class="md-subhead" ng-bind="project.keyword.join(' / ')"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">项目类型</span>
+          <span class="md-subhead" ng-bind="project.types.join(' / ')"></span>
+        </div>
+      </div>
+
+      <div class="prodetailItem2col">
+        <div class="prodetailItem1line">
+          <span class="md-title">截止日期</span>
+          <span class="md-subhead" ng-bind="project.deadline"></span>
+        </div>
+        <div class="prodetailItem1line">
+          <span class="md-title">创建时间</span>
+          <span class="md-subhead" ng-bind="project.created_time"></span>
+        </div>
+      </div>
+
+      <div class="prodetailItem2line">
+        <span class="md-title">项目介绍</span>
+        <span class="md-subhead" ng-bind="project.introduction"></span>
+      </div>
+
+      <div class="prodetailItem2line">
+        <span class="md-title">现阶段情况介绍</span>
+        <span class="md-subhead" ng-bind="project.basic"></span>
+      </div>
+
+      <div class="prodetailItem2col">
+        <div class="prodetailItem1line">
+          <span class="md-title">是否为累进项目</span>
+          <span class="md-subhead" ng-bind="project.isGradualPro == true ? '是': '否'"></span>
+        </div>
+
+        <div class="prodetailItem1line">
+          <span class="md-title">成员数</span>
+          <span class="md-subhead" ng-bind="project.member_number"></span>
+        </div>
+      </div>
+
+      <div class="prodetailItem2line">
+        <span class="md-title">成员要求</span>
+        <span class="md-subhead" ng-bind="project.member_demand"></span>
+      </div>
+    </div>
+
+    <div class="prodetailBtnDiv">
+      <md-button class="md-primary" ng-click="showJoinDialog(project)">{{btnTitle}}</md-button>
+      <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="40px"></md-progress-circular>
+    </div>
+
+  </div>
+</div>

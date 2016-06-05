@@ -8,13 +8,14 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('InfoCtrl', function ($scope, $rootScope, $timeout, ProjectSrv) {
+  .controller('InfoCtrl', function ($scope, $rootScope, $timeout, ProjectSrv, MessageSrv) {
 
     $scope.user = $rootScope.user;
+    $scope.pcMode = [null, null, null, null];
 
     // TAB1
     $scope.isPersonalInfoReadonly = true;
-    $scope.pcMode = false;
+
     $scope.personalInfoBtnDisabled = false;
     $scope.btnName = '编辑';
 
@@ -23,12 +24,12 @@ angular.module('autoApp')
       $scope.isPersonalInfoReadonly = !$scope.isPersonalInfoReadonly;
       if ($scope.isPersonalInfoReadonly) {
         $scope.personalInfoBtnDisabled = true;
-        $scope.pcMode = 'indeterminate';
+        $scope.pcMode[0] = 'indeterminate';
 
         // 假装成功
         $timeout(function() {
           $scope.personalInfoBtnDisabled = false;
-          $scope.pcMode = null;
+          $scope.pcMode[0] = null;
           $scope.btnName = '编辑';
         }, 1000);
 
@@ -57,7 +58,7 @@ angular.module('autoApp')
     // TAB3
     $scope.joinedProPreviousBtnDisabled = true;
     $scope.joinedProNextBtnDisabled = true;
-    
+
     ProjectSrv.fetchProjectByParticipant($scope.user.username)
       .success(function (data) {
         console.log(data.data);
@@ -71,6 +72,11 @@ angular.module('autoApp')
         });
         console.log($scope.joinedProjects);
       });
+
+    // TAB3
+    $scope.messagePreviousBtnDisabled = true;
+    $scope.messageNextBtnDisabled = true;
+    
 
 
   });

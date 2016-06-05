@@ -9,14 +9,39 @@
  */
 angular.module('autoApp')
   .controller('ProjectDetailCtrl', function ($stateParams, $scope, $mdDialog, $mdMedia, ProjectSrv, $rootScope) {
+    $scope.user = $rootScope.user;
+    var projectTypes = ['国创', '上创', 'sitp', '挑战杯', '创新赛事', '其他'];
+    var transDate = function (time) {
+      var deadline = new Date(time);
+      var Y = deadline.getFullYear() + '-';
+      var M = (deadline.getMonth()+1 < 10 ? '0'+(deadline.getMonth()+1) : deadline.getMonth()+1) + '-';
+      var D = deadline.getDate();
+      return Y + M + D;
+    };
+    ProjectSrv.fetchProjectById($stateParams.project_id)
+      .success(function (data) {
+        $scope.project = data.data;
+        $scope.roleInProject = setRole();
+
+        $scope.project.deadline = transDate($scope.project.deadline);
+        $scope.project.created_time = transDate($scope.project.created_time);
+
+        var types = $scope.project.types;
+        $scope.project.types = [];
+        types.forEach(function (type) {
+          $scope.project.types.push(projectTypes[type]);
+        });
+      });
+
     $scope.roleInProject = '';
     $scope.btnTitle = '';
     var setRole = function () {
-      $scope.applyBtnDisabled = true;
+      $scope.btnType = 0;
       $scope.btnTitle = '申请退出项目';
       if ($scope.project.team.charge_person.name == $scope.user.name) {
-
-        return '负责人';
+        $scope.btnType = 1;
+        $scope.btnTitle = '重新编辑项目';
+        return '创建人';
       }
       $scope.project.team.member.forEach(function (mem) {
         if (mem.name == $scope.user.name) {}
@@ -30,25 +55,17 @@ angular.module('autoApp')
         if (mem.name == $scope.user.name) {}
         return '校外导师';
       });
-      $scope.applyBtnDisabled = false;
+      $scope.btnType = 2;
       $scope.btnTitle = '申请加入项目';
       return '';
     };
 
-    $scope.user = $rootScope.user;
-    console.log('$stateParams');
-    console.log($stateParams);
-    ProjectSrv.fetchProjectById($stateParams.project_id)
-      .success(function (data) {
-        $scope.project = data.data;
-        $scope.roleInProject = setRole();
-      });
 
     $scope.showJoinDialog = function (project) {
       console.log(project);
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
 
-      if ($scope.applyBtnDisabled) {
+      if ($scope.btnType == 0) {
         $mdDialog.show({
           controller: QuitCtrl,
           controllerAs: 'ctrl',
@@ -66,7 +83,7 @@ angular.module('autoApp')
           $scope.customFullscreen = (wantsFullScreen === true);
         });
 
-      } else {
+      } else if ($scope.btnType == 2){
         $mdDialog.show({
           controller: JoinCtrl,
           controllerAs: 'ctrl',
@@ -83,6 +100,14 @@ angular.module('autoApp')
         }, function(wantsFullScreen) {
           $scope.customFullscreen = (wantsFullScreen === true);
         });
+      } else if ($scope.btnType == 1){
+        $scope.btnType = 3;
+        $scope.btnTitle = '重新发布';
+        console.log('重新编辑');
+      } else {
+        $scope.btnType = 1;
+        $scope.btnTitle = '重新编辑项目';
+        console.log('重新发布 重发要审核吗?');
       }
     };
   });
@@ -92,7 +117,9 @@ function JoinCtrl($scope, $mdDialog, project, ProjectSrv) {
   $scope.applicant = {
     reason: "",
     role: -1,
-    project: project
+    project: {
+      id: project._id
+    }
   };
   $scope.pcMode = [null, null];
   $scope.cancelBtnDisabled = false;
@@ -109,23 +136,21 @@ function JoinCtrl($scope, $mdDialog, project, ProjectSrv) {
 
     $scope.validate();
     if ($scope.errors.length == 0 ) {
-
-      ProjectSrv.applyProject(project._id, $scope.applicant.reason, $scope.applicant.role)
+        
+      ProjectSrv.applyProject($scope.applicant.project.id, $scope.applicant.reason, $scope.applicant.role)
         .success(function (data) {
+          console.log('application success!');
           console.log(data);
         })
         .error(function(error){
+          console.log('application fail!');
           console.log(error);
         });
-      $scope.submitBtnDisabled = false;
-      $scope.pcMode[1] = null;
       $mdDialog.hide();
 
-    } else {
-
-      $scope.submitBtnDisabled = false;
-      $scope.pcMode[1] = null;
     }
+    $scope.submitBtnDisabled = false;
+    $scope.pcMode[1] = null;
 
 
   };
