@@ -1,0 +1,46 @@
+<div  class="messageMainView">
+  <div class="publishBackground">
+    <div class="publishBackgroundIndex1-6"></div>
+    <div class="publishBackgroundIndex1-5"></div>
+    <div class="publishBackgroundIndex1-4"></div>
+    <div class="publishBackgroundIndex1-3"></div>
+    <div class="publishBackgroundIndex1-2"></div>
+    <div class="publishBackgroundIndex1-1"></div>
+
+    <div class="publishBackgroundIndex2-6"></div>
+    <div class="publishBackgroundIndex2-5"></div>
+    <div class="publishBackgroundIndex2-4"></div>
+    <div class="publishBackgroundIndex2-3"></div>
+    <div class="publishBackgroundIndex2-2"></div>
+    <div class="publishBackgroundIndex2-1"></div>
+  </div>
+
+  <div class="messageDiv">
+    <md-toolbar class="md-theme-light">
+      <h2 class="md-toolbar-tools">
+        <span>消息列表</span>
+      </h2>
+    </md-toolbar>
+    <md-content>
+      <span class="md-title" ng-show="hasMessage">没有任何消息</span>
+      <md-list>
+        <md-list-item ng-repeat="msg in messages">
+          <div class="md-list-item-text {{ msg.type == 0 ? 'lightGreen-item' : msg.type == 3 ? 'greyRed-item': msg.type == 4 ? 'greyBrown-item' : 'greyGreen-item' }}">
+            <h3>{{ msg.title }}  <small>{{ msg.message.attachment.application.created_time }}</small></h3>
+            <h4 ng-show="msg.type < 3">申请者: {{ msg.message.sender.name }}</h4>
+            <h4>申请项目: {{ msg.message.attachment.application.project.name }}</h4>
+            <p ng-show="msg.type < 3">申请角色: {{ msg.message.attachment.application.role }}</p>
+            <p ng-show="msg.type < 3">申请原因: {{ msg.message.attachment.application.reason }}</p>
+            <h4 ng-show="msg.type != 0">申请状态: {{ msg.type == 1 || msg.type == 3 ? '已同意' : '已拒绝' }}</h4>
+          </div>
+          <div class="md-secondary" ng-show="msg.type < 3">
+            <md-button ng-disabled="msg.type != 0" ng-click="approve(msg)">同意申请</md-button>
+            <md-button ng-disabled="msg.type != 0" ng-click="reject(msg)">拒绝申请</md-button>
+          </div>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+
+  </div>
+</div>

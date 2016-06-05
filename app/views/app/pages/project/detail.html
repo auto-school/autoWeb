@@ -18,7 +18,7 @@
   <div class="prodetailPageDiv">
     <div class="prodetailTitle" layout="column" layout-align="center center">
       <span ng-bind="project.name" class="md-display-1"></span>
-      <span ng-bind="roleInProject != '' ? '您为项目的' + roleInProject : ''" class="md-title"></span>
+      <span ng-bind="roleInProject != '' ? roleInProject : ''" class="md-title"></span>
     </div>
 
     <div class="prodetailInformation">
@@ -75,7 +75,7 @@
     </div>
 
     <div class="prodetailBtnDiv">
-      <md-button class="md-primary" ng-click="showJoinDialog(project)">{{btnTitle}}</md-button>
+      <md-button class="md-primary" ng-click="showJoinDialog(project)" ng-disabled="btnType == 4">{{btnTitle}}</md-button>
       <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="40px"></md-progress-circular>
     </div>
 

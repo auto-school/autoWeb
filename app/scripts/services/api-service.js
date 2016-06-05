@@ -43,6 +43,7 @@ angular.module('autoApp')
 
     // 找到某个人所有的消息
     this.FETCH_MESSAGES_FOR_USER = function (username) {
+      console.log(this.USER + username + '/messages');
       return this.USER + username + '/messages';
     };
 

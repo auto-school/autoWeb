@@ -138,17 +138,21 @@ angular
       url: '/project',
       template: '<div ui-view></div>'
     })
-
     .state('app.project.list',{
       url: '/list',
       templateUrl: 'views/app/pages/project/list.html',
       controller: 'ProjectListCtrl'
     })
-
     .state('app.project.detail',{
       url: '/detail/:project_id',
       templateUrl: 'views/app/pages/project/detail.html',
       controller: 'ProjectDetailCtrl'
+    })
+
+    .state('app.messages',{
+      url: '/messages',
+      templateUrl: 'views/app/pages/messages.html',
+      controller: 'MessagesCtrl'
     })
 
 

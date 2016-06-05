@@ -19,5 +19,6 @@ angular.module('autoApp')
     } else {
       $scope.infoSref = $scope.infoSref + 'user';
     }
+    
 
   });

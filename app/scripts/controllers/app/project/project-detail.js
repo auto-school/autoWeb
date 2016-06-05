@@ -36,28 +36,43 @@ angular.module('autoApp')
     $scope.roleInProject = '';
     $scope.btnTitle = '';
     var setRole = function () {
-      $scope.btnType = 0;
-      $scope.btnTitle = '申请退出项目';
+      $scope.btnType = 2;
+      $scope.btnTitle = '申请加入项目';
+      var string = '';
       if ($scope.project.team.charge_person.name == $scope.user.name) {
         $scope.btnType = 1;
         $scope.btnTitle = '重新编辑项目';
-        return '创建人';
+        string = '您为项目的创建人';
       }
       $scope.project.team.member.forEach(function (mem) {
-        if (mem.name == $scope.user.name) {}
-        return '成员';
+        if (mem.name == $scope.user.name) {
+          $scope.btnType = 0;
+          $scope.btnTitle = '申请退出项目';
+          string = '您为项目的成员';
+        }
       });
       $scope.project.team.mentor.forEach(function (mem) {
-        if (mem.name == $scope.user.name) {}
-        return '导师';
+        if (mem.name == $scope.user.name) {
+          $scope.btnType = 0;
+          $scope.btnTitle = '申请退出项目';
+          string = '您为项目的导师';
+        }
       });
       $scope.project.team.outside_mentor.forEach(function (mem) {
-        if (mem.name == $scope.user.name) {}
-        return '校外导师';
+        if (mem.name == $scope.user.name) {
+          $scope.btnType = 0;
+          $scope.btnTitle = '申请退出项目';
+          string = '您为项目的校外导师';
+        }
       });
-      $scope.btnType = 2;
-      $scope.btnTitle = '申请加入项目';
-      return '';
+      $scope.project.appliers.forEach(function (mem) {
+        if (mem.name == $scope.user.name) {
+          $scope.btnType = 4;
+          $scope.btnTitle = '申请加入项目';
+          string = '您已申请加入该项目';
+        }
+      });
+      return string;
     };
 
 
@@ -104,16 +119,18 @@ angular.module('autoApp')
         $scope.btnType = 3;
         $scope.btnTitle = '重新发布';
         console.log('重新编辑');
-      } else {
+      } else if ($scope.btnType == 3 ){
         $scope.btnType = 1;
         $scope.btnTitle = '重新编辑项目';
         console.log('重新发布 重发要审核吗?');
+      } else if ($scope.btnType == 4 ){
+
       }
     };
   });
 
 
-function JoinCtrl($scope, $mdDialog, project, ProjectSrv) {
+function JoinCtrl($scope, $mdDialog, $state, project, ProjectSrv) {
   $scope.applicant = {
     reason: "",
     role: -1,
@@ -136,7 +153,7 @@ function JoinCtrl($scope, $mdDialog, project, ProjectSrv) {
 
     $scope.validate();
     if ($scope.errors.length == 0 ) {
-        
+
       ProjectSrv.applyProject($scope.applicant.project.id, $scope.applicant.reason, $scope.applicant.role)
         .success(function (data) {
           console.log('application success!');
@@ -146,6 +163,7 @@ function JoinCtrl($scope, $mdDialog, project, ProjectSrv) {
           console.log('application fail!');
           console.log(error);
         });
+      //$state.go('app.project.detail',{'project_id': project['_id']});
       $mdDialog.hide();
 
     }
