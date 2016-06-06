@@ -1,5 +1,42 @@
-<md-content>
-<input ng-model="user.username" placeholder="account"/>
-<input ng-model="user.password" placeholder="password"/>
-<md-button class="loginAndSignupSubmitBtn md-primary" ng-click="login()">登录</md-button>
-</md-content>
+<div>
+  <div class="authBackground">
+    <div class="authBackgroundIndex6"></div>
+    <div class="authBackgroundIndex5"></div>
+    <div class="authBackgroundIndex4"></div>
+    <div class="authBackgroundIndex3"></div>
+    <div class="authBackgroundIndex2 adminLoginBackground"></div>
+    <div class="authBackgroundIndex1"></div>
+  </div>
+</div>
+
+<div class="authContent">
+  <div class="loginAndSignupDiv" layout="column" layout-align="center center">
+
+    <div class="loginAndSignupInnerDiv">
+      <div class="loginAndSignupInnerDivIconPart" layout="row" layout-align="center center" >
+        <div class="loginAndSignupRadialGradientLeftSide"></div>
+        <div class="loginAndSignupRadialGradientLeft"></div>
+        <div class="loginAndSignupSchoolIconDiv">
+          <img src="images/schoolIcon.png" class="loginAndSignupSchoolIcon" />
+        </div>
+        <div class="loginAndSignupRadialGradientRight"></div>
+        <div class="loginAndSignupRadialGradientRightSide"></div>
+      </div>
+
+      <div class="loginAndSignupInnerDivInputPart" layout="column" layout-align="center center">
+        <md-input-container class="loginAndSignupInput">
+          <label>管理员用户名</label>
+          <input ng-model="user.username" placeholder="account"/>
+        </md-input-container>
+        <md-input-container class="loginAndSignupInput">
+          <label>管理员密码</label>
+          <input ng-model="user.password" type="password" placeholder="password"/>
+        </md-input-container>
+
+        <md-button class="loginAndSignupSubmitBtn" ng-click="login()" class="md-primary" ng-disabled="btnDisabled">登录</md-button>
+        <md-progress-circular md-mode="{{pcMode}}" md-diameter="40px"></md-progress-circular>
+
+      </div>
+    </div>
+  </div>
+</div>

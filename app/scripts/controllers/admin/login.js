@@ -14,7 +14,7 @@ angular.module('autoApp')
     $scope.login = function () {
       adminSrv.login($scope.user)
         .success(function (data, status, headers, config) {
-          $state.go('admin.app');
+          $state.go('admin.app.project');
         })
         .error(function(data, status, headers, config) {
           console.log(status);

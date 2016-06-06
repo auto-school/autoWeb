@@ -1,17 +1,17 @@
-
-<md-sidenav class="md-sidenav-left md-whiteframe-z2"
-            md-is-locked-open="true" md-component-id="left" style="height: 100%" layout="column">
-
-  <header class="nav-header" ss-style-color="{'background-color': 'primary.default'}">
-
-  </header>
-
-  <md-content flex role="navigation" ss-style-color="{'background-color': 'primary.default'}">
-    <ss-sidenav flex menu="menu"></ss-sidenav>
+<div class="adminMainDiv">
+  <md-sidenav
+    class="md-sidenav-left"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-md')"
+    md-disable-backdrop
+    md-whiteframe="4">
+    <md-toolbar>
+      <h1 class="md-toolbar-tools">管理员</h1>
+    </md-toolbar>
+    <md-content flex role="navigation" ss-style-color="{'background-color': 'primary.default'}">
+      <ss-sidenav flex menu="menu"></ss-sidenav>
+    </md-content>
+  </md-sidenav>
+  <md-content flex ui-view="">
   </md-content>
-
-</md-sidenav>
-
-<div layout="column" flex>
-  <div ui-view="" style="overflow:scroll" ></div>
 </div>

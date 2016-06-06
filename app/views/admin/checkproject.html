@@ -1,19 +1,51 @@
-<md-content layout="row" layout-align="center center">
-  <md-list>
-    <md-list-item class="md-3-line" ng-repeat="project in projects">
-      <div class="md-list-item-text" layout="row">
-        <label>项目名称:</label>
-        <span>{{ project.name }}</span>
-        <label>创建人:</label>
-        <span>{{ project.creator.name }}</span>
-        <label>项目介绍</label>
-        <span> {{ project.introduction }}</span>
-        <md-button ng-show="project.status == 0" class="md-raised" ng-click="checkProject(project)">审核通过</md-button>
-        <span ng-show="project.status == 1" class="md-raised" >审核已通过</span>
-      </div>
-    </md-list-item>
-  </md-list>
-</md-content>
+<!--<md-content layout="row" layout-align="center center">-->
+  <!--<md-list>-->
+    <!--<md-list-item class="md-3-line" ng-repeat="project in projects">-->
+      <!--<div class="md-list-item-text" layout="row">-->
+        <!--<label>项目名称:</label>-->
+        <!--<span>{{ project.name }}</span>-->
+        <!--<label>创建人:</label>-->
+        <!--<span>{{ project.creator.name }}</span>-->
+        <!--<label>项目介绍</label>-->
+        <!--<span> {{ project.introduction }}</span>-->
+        <!--<md-button ng-show="project.status == 0" class="md-raised" ng-click="checkProject(project)">审核通过</md-button>-->
+        <!--<span ng-show="project.status == 1" class="md-raised" >审核已通过</span>-->
+      <!--</div>-->
+    <!--</md-list-item>-->
+  <!--</md-list>-->
+<!--</md-content>-->
+
+  <md-tabs class="md-primary" md-selected="data.selectedIndex" md-dynamic-height md-border-bottom>
+    <md-tab>
+      <md-tab-label>待审核的项目</md-tab-label>
+      <md-tab-body>
+        <md-list>
+          <md-list-item class="md-3-line" ng-repeat="project in projectsToBeChecked">
+            <div class="md-list-item-text">
+              <h3><b>{{ project.name }}</b></h3>
+              <h4>{{ project.keyword.join(' / ') }}</h4>
+              <p>{{project.introduction.slice(0, 50)}}...</p>
+            </div>
+            <md-button class="md-secondary" ng-click="showDetail(project)">查看详情</md-button>
+            <md-divider></md-divider>
+          </md-list-item>
+        </md-list>
+        <div class="paginationBtn">
+          <div>
+            <md-button class="md-primary" ng-disabled="publishedProPreviousBtnDisabled" ng-click="">前一页</md-button>
+            <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="40px"></md-progress-circular>
+          </div>
+          <div>
+            <md-button class="md-primary" ng-disabled="publishedProNextBtnDisabled" ng-click="">后一页</md-button>
+            <md-progress-circular md-mode="{{pcMode[2]}}" md-diameter="40px"></md-progress-circular>
+          </div>
+        </div>
+      </md-tab-body>
+    </md-tab>
+  </md-tabs>
+
+
+
 
 
 

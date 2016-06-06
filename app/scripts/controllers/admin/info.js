@@ -73,7 +73,7 @@ angular.module('autoApp')
         locals: {
           project: project
         },
-        clickOutsideToClose:false,
+        clickOutsideToClose:true,
         fullscreen: useFullScreen
       });
       $scope.$watch(function() {

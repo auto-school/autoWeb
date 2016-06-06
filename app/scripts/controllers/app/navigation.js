@@ -13,12 +13,4 @@ angular.module('autoApp')
     $scope.user = $rootScope.user;
     console.log( $scope.user );
 
-    $scope.infoSref = 'app.info.';
-    if ($scope.user.username == 'admin') {
-      $scope.infoSref = $scope.infoSref + 'admin';
-    } else {
-      $scope.infoSref = $scope.infoSref + 'user';
-    }
-    
-
   });
