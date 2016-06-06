@@ -9,12 +9,10 @@
 
 .messageDiv {
   position: relative;
+  width: 70%;
   margin: 50px auto;
   border-radius: 0 0 10px 10px;
-  padding-bottom: 5px;
-  width: 70%;
   background: #ffffff;
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -27,7 +25,6 @@
 }
 .messageDiv md-content {
   width: 100%;
-
 }
 
 .messageDiv md-content img {

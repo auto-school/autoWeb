@@ -20,7 +20,7 @@ angular.module('autoApp')
       $scope.pcMode = 'indeterminate';
 
       $scope.validate();
-      if ($scope.errors.count == 0 ) {
+      if ($scope.errors.length == 0 ) {
         UserSrv.signup($scope.user)
           .success(function (data, status, headers, config) {
             $scope.pcMode = null;
