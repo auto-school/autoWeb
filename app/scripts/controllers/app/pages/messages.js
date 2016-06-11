@@ -21,6 +21,7 @@ angular.module('autoApp')
             $scope.hasMessage = true;
           }
 
+          var role = ['成员', '导师', '校外导师'];
           msgs.forEach(function (msg) {
             var deadline = new Date(msg.attachment.application.created_time);
             var Y = deadline.getFullYear() + '-';
@@ -35,6 +36,7 @@ angular.module('autoApp')
               type = type + 2;
               title = '您的申请已被处理';
             }
+            msg.attachment.application.role = role[msg.attachment.application.role];
             $scope.messages.push({
               message: msg,
               type: type,

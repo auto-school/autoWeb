@@ -198,13 +198,13 @@ function JoinCtrl($scope, $mdDialog, $state, project, ProjectSrv) {
 
   // 身份类型
   $scope.applicantType = [{
-    name:'导师',
+    name:'成员',
     index: 0
   }, {
-    name:'校外导师',
+    name:'导师',
     index: 1
   }, {
-    name:'成员',
+    name:'校外导师',
     index: 2
   }];
 
@@ -212,7 +212,7 @@ function JoinCtrl($scope, $mdDialog, $state, project, ProjectSrv) {
   $scope.errors = [];
   $scope.validate = function () {
     $scope.errors = [];
-    if ($scope.application.role != 1 && $scope.application.role != 2 && $scope.application.role != 3) {
+    if ($scope.application.role != 0 && $scope.application.role != 1 && $scope.application.role != 2) {
       $scope.errors.push("申请角色不能为空");
     }
     if ($scope.application.reason == null || $scope.application.reason == "") {
