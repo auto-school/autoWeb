@@ -8,7 +8,7 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('ProjectDetailCtrl', function ($stateParams, $scope, $mdDialog, $mdMedia, ProjectSrv, $rootScope) {
+  .controller('ProjectDetailCtrl', function ($stateParams, $window, $scope, $mdDialog, $mdMedia, ProjectSrv, $rootScope) {
     $scope.user = $rootScope.user;
     var projectTypes = ['国创', '上创', 'sitp', '挑战杯', '创新赛事', '其他'];
     var transDate = function (time) {
@@ -18,8 +18,12 @@ angular.module('autoApp')
       var D = deadline.getDate();
       return Y + M + D;
     };
+    $scope.mentorStr = '';
+    $scope.outsideMentorStr = '';
+    $scope.memberStr = '';
     ProjectSrv.fetchProjectById($stateParams.project_id)
       .success(function (data) {
+        console.log(data);
         $scope.project = data.data;
         $scope.roleInProject = setRole();
 
@@ -31,16 +35,28 @@ angular.module('autoApp')
         types.forEach(function (type) {
           $scope.project.types.push(projectTypes[type]);
         });
+
+        $scope.project.team.mentor.forEach(function (m) {
+          $scope.mentorStr = $scope.mentorStr + ' ' + m.name;
+        });
+        $scope.project.team.outside_mentor.forEach(function (m) {
+          $scope.outsideMentorStr = $scope.outsideMentorStr + ' ' + m.name;
+        });
+        $scope.project.team.member.forEach(function (m) {
+          $scope.memberStr = $scope.memberStr + ' ' + m.name;
+        });
       });
 
     $scope.roleInProject = '';
     $scope.btnTitle = '';
+    $scope.showChargeMan = true;
     var setRole = function () {
       $scope.btnType = 2;
       $scope.btnTitle = '申请加入项目';
       var string = '';
       if ($scope.project.team.charge_person.name == $scope.user.name) {
         $scope.btnType = 1;
+        $scope.showChargeMan = false;
         $scope.btnTitle = '重新编辑项目';
         string = '您为项目的创建人';
       }
@@ -73,6 +89,11 @@ angular.module('autoApp')
         }
       });
       return string;
+    };
+
+    $scope.goBack = function () {
+      console.log('go back');
+      $window.history.back();
     };
 
 
@@ -131,7 +152,7 @@ angular.module('autoApp')
 
 
 function JoinCtrl($scope, $mdDialog, $state, project, ProjectSrv) {
-  $scope.applicant = {
+  $scope.application = {
     reason: "",
     role: -1,
     project: {
@@ -153,17 +174,19 @@ function JoinCtrl($scope, $mdDialog, $state, project, ProjectSrv) {
 
     $scope.validate();
     if ($scope.errors.length == 0 ) {
-
-      ProjectSrv.applyProject($scope.applicant.project.id, $scope.applicant.reason, $scope.applicant.role)
+      $scope.application.role = Number($scope.application.role);
+      console.log($scope.application);
+      ProjectSrv.applyProject($scope.application.project.id, $scope.application.reason,  $scope.application.role)
         .success(function (data) {
           console.log('application success!');
           console.log(data);
+          $state.go('app.project.detail',{'project_id': project['_id']}, {reload: true});
         })
         .error(function(error){
           console.log('application fail!');
           console.log(error);
         });
-      //$state.go('app.project.detail',{'project_id': project['_id']});
+
       $mdDialog.hide();
 
     }
@@ -189,10 +212,10 @@ function JoinCtrl($scope, $mdDialog, $state, project, ProjectSrv) {
   $scope.errors = [];
   $scope.validate = function () {
     $scope.errors = [];
-    if ($scope.applicant.role != 1 && $scope.applicant.role != 2 && $scope.applicant.role != 3) {
+    if ($scope.application.role != 1 && $scope.application.role != 2 && $scope.application.role != 3) {
       $scope.errors.push("申请角色不能为空");
     }
-    if ($scope.applicant.reason == null || $scope.applicant.reason == "") {
+    if ($scope.application.reason == null || $scope.application.reason == "") {
       $scope.errors.push("理由不能为空");
     }
   };

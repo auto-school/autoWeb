@@ -16,6 +16,10 @@ angular.module('autoApp')
       var error =  $injector.get('AckService').getAck(response.status);
       console.log(error);
       $injector.get('NoticeService').notify(error.toString());
+      if (response.status == 401) {
+        $injector.get('$state').go('auth.login');
+      }
+
       return $q.reject(response);
     };
 

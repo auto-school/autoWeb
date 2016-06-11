@@ -3,7 +3,7 @@
     <md-toolbar>
       <div class="joinToolBarBackground">
         <div class="joinToolBarBackgroundIndex3"></div>
-        <div class="joinToolBarBackgroundIndex2"></div>
+        <div class="joinToolBarBackgroundIndex2 adminProDetailBackground"></div>
       </div>
       <div class="md-toolbar-tools">
         <h2>项目详情</h2>
@@ -64,11 +64,11 @@
       <span flex></span>
       <div>
         <md-button ng-disabled="objectBtnDisabled" ng-click="object()">审核否决</md-button>
-        <md-progress-circular md-mode="{{pcMode[0]}}" md-diameter="30px"></md-progress-circular>
+        <md-progress-circular md-mode="{{pcMode}}" md-diameter="30px"></md-progress-circular>
       </div>
       <div>
         <md-button ng-disabled="checkBtnDisabled" ng-click="check()">审核通过</md-button>
-        <md-progress-circular md-mode="{{pcMode[1]}}" md-diameter="30px"></md-progress-circular>
+        <md-progress-circular md-mode="{{pcMode}}" md-diameter="30px"></md-progress-circular>
       </div>
     </md-dialog-actions>
   </form>

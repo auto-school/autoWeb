@@ -20,7 +20,7 @@
 
         <div>
           <pan class="md-title">申请身份</pan>
-          <md-radio-group ng-model="applicant.role">
+          <md-radio-group ng-model="application.role">
             <div ng-repeat="type in applicantType">
               <md-radio-button  value="{{type.index}}" class="md-primary">{{type.name}}</md-radio-button>
             </div>
@@ -29,7 +29,7 @@
         <div>
           <pan class="md-title">申请原因</pan>
           <md-input-container>
-            <input ng-model="applicant.reason">
+            <input ng-model="application.reason">
           </md-input-container>
         </div>
       </div>

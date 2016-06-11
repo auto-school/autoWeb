@@ -16,8 +16,10 @@
   </div>
 
   <div class="prodetailPageDiv">
+    <md-button class="md-primary backBtn" ng-click="goBack()">返回</md-button>
     <div class="prodetailTitle" layout="column" layout-align="center center">
       <span ng-bind="project.name" class="md-display-1"></span>
+      <span ng-show="showChargeMan" class="md-title">项目创建人: {{project.team.charge_person.name}}</span>
       <span ng-bind="roleInProject != '' ? roleInProject : ''" class="md-title"></span>
     </div>
 
@@ -68,9 +70,24 @@
         </div>
       </div>
 
-      <div class="prodetailItem2line">
+      <div class="prodetailItem1line">
         <span class="md-title">成员要求</span>
         <span class="md-subhead" ng-bind="project.member_demand"></span>
+      </div>
+
+      <div class="prodetailItem1line" ng-show="project.team.mentor.length > 0">
+        <span class="md-title">校内导师</span>
+        <span class="md-subhead" ng-bind="mentorStr"></span>
+      </div>
+
+      <div class="prodetailItem1line" ng-show="project.team.outside_mentor.length > 0">
+        <span class="md-title">校外导师</span>
+        <span class="md-subhead" ng-bind="outsideMentorStr"></span>
+      </div>
+
+      <div class="prodetailItem1line" ng-show="project.team.member.length > 0">
+        <span class="md-title">现有成员</span>
+        <span class="md-subhead" ng-bind="memberStr"></span>
       </div>
     </div>
 

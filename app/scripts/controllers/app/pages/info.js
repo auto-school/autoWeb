@@ -8,7 +8,7 @@
  * Controller of the autoApp
  */
 angular.module('autoApp')
-  .controller('InfoCtrl', function ($scope, $rootScope, $timeout, ProjectSrv, MessageSrv) {
+  .controller('InfoCtrl', function ($scope, $rootScope, $timeout, ProjectSrv, $state) {
 
     $scope.user = $rootScope.user;
     $scope.pcMode = [null, null, null, null];
@@ -52,6 +52,8 @@ angular.module('autoApp')
           var D = deadline.getDate();
           pro.deadline = Y + M + D;
         });
+
+        console.log($scope.publishedProjects);
       });
 
 
@@ -61,7 +63,7 @@ angular.module('autoApp')
 
     ProjectSrv.fetchProjectByParticipant($scope.user.username)
       .success(function (data) {
-        console.log(data.data);
+
         $scope.joinedProjects = data.data;
         $scope.joinedProjects.forEach(function (pro) {
           var deadline = new Date(pro.deadline);
@@ -73,10 +75,13 @@ angular.module('autoApp')
         console.log($scope.joinedProjects);
       });
 
-    // TAB3
-    $scope.messagePreviousBtnDisabled = true;
-    $scope.messageNextBtnDisabled = true;
-    
+    $scope.showPublishedProDetail = function(project) {
+      $state.go('app.project.detail',{'project_id': project._id});
+    };
+
+    $scope.showJoinededProDetail = function(project) {
+      $state.go('app.project.detail',{'project_id': project._id.$oid});
+    };
 
 
   });

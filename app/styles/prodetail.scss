@@ -87,7 +87,8 @@ md-dialog md-dialog-content > .prodetailDiv {
   align-items: center;
 }
 
-.prodetailBtnDiv > button.md-button.md-primary {
+.prodetailBtnDiv > button.md-button.md-primary,
+.prodetailPageDiv > .backBtn {
   padding: 0px 20px;
   background-color: #443d36;
   color: #ffffff;
@@ -97,6 +98,7 @@ md-dialog md-dialog-content > .prodetailDiv {
 
   color: #666666;
 }
+
 .prodetailBtnDiv button ~ md-progress-circular {
   top: -45px;
   width: 40px !important;

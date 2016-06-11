@@ -10,7 +10,7 @@ angular.module('autoApp')
     $scope.publishedProPreviousBtnDisabled = true;
     $scope.publishedProNextBtnDisabled = true;
 
-    var fetch = function () {
+    $scope.fetch = function () {
       ProjectSrv.fetchAllNeedToCheckProject()
         .success(function (data, status, headers, config) {
           $scope.projectsToBeChecked = data.data;
@@ -31,7 +31,7 @@ angular.module('autoApp')
           console.log(status);
         });
     };
-    fetch();
+    $scope.fetch();
     $scope.showDetail = function (project) {
       console.log(project);
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
@@ -43,6 +43,7 @@ angular.module('autoApp')
         locals: {
           project: project
         },
+        scope: $scope,
         clickOutsideToClose:true,
         fullscreen: useFullScreen
       });
@@ -55,9 +56,9 @@ angular.module('autoApp')
   });
 
 
-function showCtrl($scope, $mdDialog, project, ProjectSrv) {
+function showCtrl($scope, $mdDialog, project, ProjectSrv, $state) {
 
-  $scope.pcMode = [null, null];
+  $scope.pcMode = null;
   $scope.objectBtnDisabled = false;
   $scope.checkBtnDisabled = false;
 
@@ -65,13 +66,12 @@ function showCtrl($scope, $mdDialog, project, ProjectSrv) {
 
 
   $scope.object = function() {
-    $scope.objectBtnDisabled = true;
-    $scope.pcMode[0] =  'indeterminate';
     ProjectSrv.rejectProject(project._id)
       .success(function () {
         console.log("object project:(id) " + project._id);
-        $mdDialog.hide();
 
+        $scope.fetch();
+        $mdDialog.hide();
       })
       .error(function () {
         $mdDialog.cancel();
@@ -79,19 +79,21 @@ function showCtrl($scope, $mdDialog, project, ProjectSrv) {
   };
 
   $scope.check = function () {
-    $scope.checkBtnDisabled = true;
-    $scope.pcMode[1] =  'indeterminate';
 
     ProjectSrv.checkProject(project._id)
       .success(function () {
-        project['status'] = 1;
         console.log("check project:(id) " + project._id);
+
+        $scope.fetch();
         $mdDialog.hide();
 
       })
       .error(function () {
         $mdDialog.cancel();
       });
+
   };
+
+
 
 }
